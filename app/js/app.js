@@ -1,5 +1,7 @@
 'use strict';
-angular.module("Tango",[])
-	.controller("mainCtrl",['$scope',function($scope){
-		
-	}])
+angular.module("Tango",['ngMaterial','ngRoute'])
+	.controller("mainCtrl",['$scope','$animate',function($scope,$animate){
+
+  }])
+
+
