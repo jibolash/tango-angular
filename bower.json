@@ -1,0 +1,19 @@
+{
+  "name": "Tango",
+  "version": "0.0.0",
+  "authors": [
+    "Stephen <stephen.sunday@andela.co>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.0",
+    "angular-material": "~0.9.0"
+  }
+}
