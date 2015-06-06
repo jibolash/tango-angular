@@ -1,0 +1,21 @@
+<md-dialog aria-label='LOGIN'>
+  <md-toolbar layout layout-align="center center">Log In</md-toolbar>
+  <form layout-margin>
+    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+      <label>Username</label>
+      <input ng-model="loginData.username" type="text" ng-required="true">
+    </md-input-container>
+
+    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+      <label>Password</label>
+      <input ng-model="loginData.password" type="password" ng-required="true">
+    </md-input-container>
+
+          <md-progress-linear md-mode="indeterminate" ng-hide="hideProg" class="md-primary"></md-progress-linear>
+
+            <md-button   flex ng-disabled="postJobForm.$invalid" ng-click="submitJob()"
+                class="md-raised md-primary md-hue-2">
+                Login
+            </md-button>
+      </form>
+</md-dialog>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="Tango">
 <head>
-	<title>Tango|Home</title>
+	<title>Tango | Home</title>
 	<link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-material/angular-material.min.css">
 	<style type="text/css">
 </style>
@@ -10,11 +10,12 @@
 
 	<div layout="column">
 		<md-toolbar layout="row">
-			<h1 class="md-toolbar-tools" layout-align-gt-sm="center">Tango</h1>
+			<h1 class="md-toolbar-tools" layout-align-gt-sm="left">Tango</h1>
 		  <md-button flex='15'>Add Gig</md-button>
-		  <md-button flex='15'>Login/Signup</md-button>
-		  <md-icon md-svg-icon="app/assets/img/help.svg" style="color:rgba(255, 255, 255, 1)!important; width:50px;height:50px" alt="About"></md-icon>
-		</md-toolbar>
+		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl">Login</md-button>
+      <md-button flex='15' ng-click="signup($event)">Signup</md-button>
+<!-- 		  <md-icon md-svg-icon="app/assets/img/help.svg" style="color:rgba(255, 255, 255, 1)!important; width:50px;height:50px" alt="About"></md-icon>
+ -->		</md-toolbar>
 		<div layout="row">
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
       <h1 class="md-toolbar-tools">Categories</h1>
@@ -29,14 +30,14 @@
 	  <div layout="column">
 	  	<div layout="row">
 	  		<h2 style='margin-left: 20px' flex='80'>RECENTLY ADDED GIGS</h2>
-	  		<div id='search' flex = '100'>
+	  		<div flex = '100'>
 			  	<md-input-container>
 		      	<label>Search Gigs</label>
 		      	<input>
 		    	</md-input-container>
 	    	</div>
 	  	</div>
-	  	<md-grid-list md-cols="5" md-gutter="1em" md-row-height='100px'>
+<!-- <md-grid-list md-cols="5" md-gutter="1em" md-row-height='100px'>
   <md-grid-tile>
   	<img src="app/assets/img/one.jpg" height="200" >
     <md-grid-tile-footer>
@@ -97,7 +98,7 @@
       <h3>I can write a 2000 word essay for you</h3>
     </md-grid-tile-footer>
   </md-grid-tile>
-</md-grid-list>
+</md-grid-list> -->
 	  </div>
 	</div>
 	</div>
@@ -108,5 +109,8 @@
 	<script src="app/assets/bower_components/angular-aria/angular-aria.min.js"></script>
 	<script src="app/assets/bower_components/angular-material/angular-material.js"></script>
 	<script src="app/js/app.js"></script>
+
+  <!-- controllers -->
+  <script src="app/js/controllers/login.controller.js"></script>
 </body>
 </html>
