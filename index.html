@@ -6,99 +6,90 @@
 	<style type="text/css">
 </style>
 </head>
-<body ng-controller="mainCtrl" layout="column">
+<body>
 
-	<div layout="column">
+	<div>
 		<md-toolbar layout="row">
-			<h1 class="md-toolbar-tools" layout-align-gt-sm="left">Tango</h1>
+			<div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
 		  <md-button flex='15'>Add Gig</md-button>
-		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl">Login</md-button>
-      <md-button flex='15' ng-click="signup($event)">Signup</md-button>
-<!-- 		  <md-icon md-svg-icon="app/assets/img/help.svg" style="color:rgba(255, 255, 255, 1)!important; width:50px;height:50px" alt="About"></md-icon>
- -->		</md-toolbar>
+		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
+      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
+ 		 </md-toolbar>
 		<div layout="row">
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
       <h1 class="md-toolbar-tools">Categories</h1>
      	<md-list ng-repeat="category in ['Fashion','Graphics','Religion','Writing','Programming','Music']">
 				<md-list-item>
-			    <p> {{category}} </p>
+			    <p> <md-icon md-svg-src="app/assets/img/ic_brush_black_48px.svg" style='color:#00f'></md-icon>{{category}} </p>
 			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
 				</md-list-item>
      	</md-list>
 	  </md-sidenav>
 
-	  <div layout="column">
+	  <div flex>
 	  	<div layout="row">
-	  		<h2 style='margin-left: 20px' flex='80'>RECENTLY ADDED GIGS</h2>
-	  		<div flex = '100'>
+	  		<h2 style='margin-left: 20px; color:brown' flex='60'>RECENTLY ADDED GIGS</h2>
+	  		<div flex='40'>
 			  	<md-input-container>
 		      	<label>Search Gigs</label>
-		      	<input>
+		      	<input type='text'>
 		    	</md-input-container>
 	    	</div>
 	  	</div>
-<!-- <md-grid-list md-cols="5" md-gutter="1em" md-row-height='100px'>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile>
-  	<img src="app/assets/img/one.jpg" height="200" >
-    <md-grid-tile-footer>
-      <h3>I can write a 2000 word essay for you</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-</md-grid-list> -->
+
+      <div ng-controller="gigsCtrl">
+      <!-- <md-list-item class="md-3-line" ng-repeat="gig in gigs">
+        <p>{{gig.title}}</p>
+        <p>{{gig.category}}</p>
+        <p>{{gig.description}}</p>
+        <p>{{gig.duration}}</p>
+      </md-list-item> -->
+
+        <md-grid-list
+               md-cols-sm="1" md-cols-md="3" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="2:2"
+              md-gutter="12px" md-gutter-gt-sm="8px">
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+
+        </md-grid-list>
+
+      </div>
 	  </div>
 	</div>
 	</div>
@@ -111,6 +102,9 @@
 	<script src="app/js/app.js"></script>
 
   <!-- controllers -->
+  <script src="app/js/services/services.js"></script>
   <script src="app/js/controllers/login.controller.js"></script>
+  <script src="app/js/controllers/gig/gigs.controller.js"></script>
+
 </body>
 </html>

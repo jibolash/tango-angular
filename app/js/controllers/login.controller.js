@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module("Tango")
-  .controller("loginCtrl",['$scope', '$mdDialog', function($scope, $mdDialog){
+  .controller("loginCtrl",['$scope', '$mdDialog', '$mdToast', '$animate', '$location', '$rootScope', 'userService', 'Auth', function($scope, $mdDialog, $mdToast, $animate, $location, $rootScope, userService, Auth){
+
     $scope.login = function(ev){
       $mdDialog.show({
         templateUrl: 'app/views/login.html',
@@ -10,9 +11,63 @@ angular.module("Tango")
         escapeToClose: true
       })
       .then(function(){
-
       });
     };
 
+    $scope.signup = function(ev){
+      $mdDialog.show({
+        templateUrl: 'app/views/signup.html',
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        escapeToClose: true
+      })
+      .then(function(){
+      });
+    };
 
+    $scope.doLogin = function(loginData){
+      Auth.login($scope.loginData.username, $scope.loginData.password)
+        .success(function(data){
+          if(data.message === "User not found"){
+            console.log('user o exist')
+          }
+          else if(data.message === "Wrong password"){
+            console.log('wrong password jor')
+          }
+          else{
+            $rootScope.loggedIn = true;
+            $mdDialog.hide();
+          }
+        });
+    };
+
+    $scope.logout = function(){
+      Auth.logout();
+      $scope.user = {};
+      $rootScope.loggedIn = false;
+    };
+
+    $scope.toastPosition = {
+      bottom: false,
+      top: true,
+      left: false,
+      right: true
+    };
+
+    $scope.getToastPosition = function() {
+      return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
+    };
+
+    $scope.doSignup = function(userData, ev){
+      userService.addUser(userData).success(function(data){
+        $mdDialog.hide();
+        $mdToast.show({
+          templateUrl: 'app/views/proceed.html',
+          hideDelay: 6000,
+          position: $scope.getToastPosition()
+        });
+     });
+    };
   }]);
