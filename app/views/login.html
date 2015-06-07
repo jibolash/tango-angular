@@ -1,6 +1,7 @@
 <md-dialog aria-label='LOGIN' ng-controller="loginCtrl">
   <md-toolbar layout layout-align="center center">Log In</md-toolbar>
   <form name='loginForm' layout-margin>
+    <h3 ng-if='loginError'>Wrong Username or Password</h3>
     <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
       <label>Username</label>
       <input ng-model="loginData.username" type="text" ng-required="true">

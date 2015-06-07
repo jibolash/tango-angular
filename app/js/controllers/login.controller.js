@@ -29,14 +29,15 @@ angular.module("Tango")
       Auth.login($scope.loginData.username, $scope.loginData.password)
         .success(function(data){
           if(data.message === "User not found"){
-            console.log('user o exist')
+            $scope.loginError = true;
           }
           else if(data.message === "Wrong password"){
-            console.log('wrong password jor')
+            $scope.loginError = true;
           }
           else{
             $rootScope.loggedIn = true;
             $mdDialog.hide();
+            $scope.loginError = false;
           }
         });
     };
