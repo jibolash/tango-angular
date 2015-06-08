@@ -16,28 +16,29 @@
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
  		</md-toolbar>
-     <div layout="row" style="background: url('app/assets/img/two.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x;">
-      <div flex style="margin-top: 18em !important; padding: 1em !important; margin-bottom: .5em;">
-      <h1 class='md-display-3' layout-align="center center">
-        <center style='color:green'><b>&#8358;1000. EVERYTHING</b></center>
-      </h1>
-      <h3 class="md-subhead" hide-sm>
-        <center style='font-family:"Comic Sans MS", cursive, sans-serif; font-size:26px'>Do the things you love and make money while at it.<br> Get things done at &#8358;1000</center>
-      </h3>
-    </div>
-     </div>
-
+   <div layout="row" style="background: url('app/assets/img/two.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x;">
+    <div flex style="margin-top: 8em !important; padding: 1em !important; margin-bottom: .5em;">
+    <h1 class='md-display-3' layout-align="center center">
+      <center style='color:green'><b>&#8358;1000. EVERYTHING</b></center>
+    </h1>
+    <h3 class="md-subhead" hide-sm>
+      <center style='font-family:"Comic Sans MS", cursive, sans-serif; font-size:26px'>Do the things you love and make money while at it.<br> Get things done at &#8358;1000</center>
+    </h3>
+  </div>
+   </div>
 		<div layout="row">
-		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <h1 class="md-toolbar-tools">Categories</h1>
-     	<md-list ng-repeat="category in ['Fashion','Graphics','Religion','Writing','Programming','Music']">
-				<md-list-item>
-			    <p> <md-icon md-svg-src="app/assets/img/ic_brush_black_48px.svg" style='color:#00f'></md-icon>{{category}} </p>
-			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
-				</md-list-item>
-     	</md-list>
-	  </md-sidenav>
+      <div ng-controller="categoryController">
+  		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <h1 class="md-toolbar-tools">Categories</h1>
+       	<md-list ng-repeat="category in categories">
+  				<md-list-item>
+  			    <p> <md-icon md-svg-src="http://uxrepo.com/static/icon-sets/elusive/svg/download.svg" style='color:#00f'></md-icon>{{category.name}} </p>
 
+  			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
+  				</md-list-item>
+       	</md-list>
+  	  </md-sidenav>
+      </div>
 	  <div flex>
 	  	<div layout="row">
 	  		<h2 style='margin-left: 20px; color:green' flex='60'>RECENTLY ADDED GIGS</h2>
@@ -113,9 +114,14 @@
 	<script src="app/js/app.js"></script>
 
   <!-- controllers -->
-  <script src="app/js/services/services.js"></script>
+  <script src="app/js/services/baseUrl.service.js"></script>
+  <script src="app/js/services/auth.service.js"></script>
+  <script src="app/js/services/user.service.js"></script>
+  <script src="app/js/services/gig.service.js"></script>
+  <script src="app/js/services/category.service.js"></script>
   <script src="app/js/controllers/login.controller.js"></script>
   <script src="app/js/controllers/gig/gigs.controller.js"></script>
+  <script src="app/js/controllers/category/category.controller.js"></script>
 
 </body>
 </html>

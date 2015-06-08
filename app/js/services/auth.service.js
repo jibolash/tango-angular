@@ -2,81 +2,8 @@
 
 var app = angular.module('Tango');
 
-const baseUrl = 'http://localhost:8000/api'; //localhost
-//const baseUrl = 'https://tangong.herokuapp.com/api'; //heroku
-
-//service handlingn requests to the api concerning users
-app.factory('userService', ['$http', function($http){
-
-  var userFactory = {};
-
-
-  userFactory.allUsers = function(){
-    return $http.get(baseUrl + '/users');
-  };
-
-  userFactory.oneUser = function(userid){
-    return $http.get(baseUrl + '/user/' + userid);
-  };
-
-  userFactory.getByUsername = function(username){
-    return $http.get(baseUrl + '/user/username/' + username);
-  };
-
-  userFactory.addUser = function(userData){
-    return $http.post(baseUrl + '/users', userData);
-  };
-
-  userFactory.editUser = function(userid, userData){
-    return $http.put(baseUrl + 'user/'+ userid, userData);
-  };
-
-  userFactory.deleteUser = function(userid){
-    return $http.delete(baseUrl + 'user/'+userid);
-  };
-
-  return userFactory;
-
-}]);
-
-app.factory('gigService', ['$http', function($http){
-
-  var gigFactory = {};
-
-  gigFactory.allGigs = function(){
-    return $http.get(baseUrl + '/gigs');
-  };
-
-  gigFactory.oneGig = function(gigid){
-    return $http.get(baseUrl + '/gig/' + gigid);
-  };
-
-  gigFactory.addGig = function(gigData,id){
-    gigData.addedBy = id;
-    return $http.post(baseUrl + '/books', gigData);
-  };
-
-  gigFactory.editGig = function(gigid, gigData){
-    return $http.put(baseUrl + '/gig/'+ gigid, gigData);
-  };
-
-  gigFactory.deleteGig = function(gigid){
-    return $http.delete(baseUrl + '/gig/'+gigid);
-  };
-
-  gigFactory.searchGig = function(){
-
-  };
-
-  gigFactory.searchCategory =function(categoryName){
-    return $http.get(baseUrl + '/gigs/search/category?category='+categoryName);
-  };
-
-  return gigFactory;
-
-}]);
-
-  app.factory('Auth', ['$http', '$q', 'AuthToken', function($http, $q, AuthToken){
+//heroku
+app.factory('Auth', ['$http', '$q', 'AuthToken','baseUrl', function($http, $q, AuthToken, baseUrl){
 
     var authFactory = {};
 
