@@ -5,7 +5,7 @@ angular.module("Tango",['ngMaterial','ngRoute'])
     $httpProvider.interceptors.push('AuthInterceptor');
      $mdThemingProvider.theme('default')
     .primaryPalette('green')
-    .accentPalette('red')
+    .accentPalette('green')
     .backgroundPalette('brown');
   });
 
