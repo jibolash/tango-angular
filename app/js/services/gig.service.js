@@ -15,8 +15,8 @@ app.factory('gigService', ['$http','baseUrl', function($http,baseUrl){
   };
 
   gigFactory.addGig = function(gigData,id){
-    gigData.addedBy = id;
-    return $http.post(baseUrl + '/books', gigData);
+    // gigData.addedBy = 3;
+    return $http.post(baseUrl + '/gigs/', gigData);
   };
 
   gigFactory.editGig = function(gigid, gigData){
