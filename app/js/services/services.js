@@ -2,8 +2,8 @@
 
 var app = angular.module('Tango');
 
-//const baseUrl = 'http://localhost:8000/api'; //localhost
-const baseUrl = 'https://tangong-api.herokuapp.com/api'; //heroku
+const baseUrl = 'http://localhost:8000/api'; //localhost
+//const baseUrl = 'https://tangong-api.herokuapp.com/api'; //heroku
 
 //service handlingn requests to the api concerning users
 app.factory('userService', ['$http', function($http){

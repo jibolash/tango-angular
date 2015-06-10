@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module("Tango",['ngMaterial','ngRoute'])
-	.config(function($httpProvider, $mdThemingProvider){
+	.config(function($httpProvider, $mdThemingProvider, $routeProvider){
     $httpProvider.interceptors.push('AuthInterceptor');
+
      $mdThemingProvider.theme('default')
     .primaryPalette('green')
-    .accentPalette('green')
+    .accentPalette('blue')
     .backgroundPalette('brown');
   });
 
