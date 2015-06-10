@@ -21,7 +21,7 @@ angular.module('Tango')
 			      $mdToast.simple()
 			        .content('Your Gig has been added!')
 			        .position($scope.getToastPosition())
-			        .hideDelay(3000)
+			        .hideDelay(6000)
 			    );
 				})
 				.error(function(err){
