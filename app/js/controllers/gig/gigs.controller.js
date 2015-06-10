@@ -10,15 +10,12 @@ angular.module('Tango')
 				$scope.categories = data;
 			})
 		$scope.doAdd = function(gig){
-			console.log(gig);
 			var id = $window.localStorage.getItem('token');
-			console.log(id);
 			gigService.addGig(gig,id)
 				.success(function(data){
-					console.log(1,data);
+					$scope.gig = '';
 				})
 				.error(function(err){
-					console.log(2,err);
-				})
-		}
+				});
+		};
 }]);

@@ -29,25 +29,26 @@
 	  	</div>
       <div ng-controller="gigsCtrl">
       	<form name='addGigForm' layout-margin>
+          <label>What do you want to do?</label>
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
-			      <label>Title</label>
+			      <label>Gig Title</label>
 			      <input ng-model="gig.title" type="text" ng-required="true">
 			    </md-input-container>
-
-			    <md-select placeholder="Category" ng-model="gig.category">
+          <label>Select the category in which your gig falls in</label>
+			    <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
 	        	<md-option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</md-option>
 	      	</md-select>
-
+          <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
 			      <label>Description</label>
 			      <input ng-model="gig.description" type="text" ng-required="true">
-			    </md-input-container>	
-			   
+			    </md-input-container>
+          <label>How many days will this take you?</label>
 			    <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
-	        	<md-option ng-repeat="duration in [1,2,3,4]" value="{{duration}}">{{duration}}</md-option>
-	      	</md-select>		
+	        	<md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
+	      	</md-select>
 
-	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>   		
+	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
 	      </form>
       </div>
 	  </div>
