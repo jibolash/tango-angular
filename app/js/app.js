@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module("Tango",['ngMaterial','ngRoute'])
-	.config(function($httpProvider, $mdThemingProvider, $routeProvider){
+angular.module("Tango",['ngMaterial','ngRoute','ui.router'])
+	.config(function($httpProvider, $mdThemingProvider){
     $httpProvider.interceptors.push('AuthInterceptor');
 
      $mdThemingProvider.theme('default')
@@ -20,3 +20,17 @@ angular.module('Tango').run(['$rootScope', '$location', 'Auth', function($rootSc
         });
     });
 }]);
+
+angular.module("Tango")
+  .config(function($stateProvider,$urlRouterProvider){
+    $urlRouterProvider.otherwise("/")
+    $stateProvider
+      .state('home',{
+        url:"/",
+        templateUrl: "app/views/landing.html"
+      })
+      .state('add',{
+        url:"/gigs/new",
+        templateUrl: "app/views/addGig.html"
+      })
+  });

@@ -1,0 +1,99 @@
+	<div>
+		<md-toolbar layout="row">
+			<div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
+		  <md-button flex='15' ui-sref="add">Add Gig</md-button>
+		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
+      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
+ 		</md-toolbar>
+
+   <div layout="row" style="background: url('app/assets/img/two.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x;">
+    <div flex style="margin-top: 8em !important; padding: 1em !important; margin-bottom: .5em;">
+    <h1 class='md-display-3' layout-align="center center">
+      <center style='color:green'><b>&#8358;1000. EVERYTHING</b></center>
+    </h1>
+    <h3 class="md-subhead" hide-sm>
+      <center style='font-family:"Comic Sans MS", cursive, sans-serif; font-size:26px'>Do the things you love and make money while at it.<br> Get things done at &#8358;1000</center>
+    </h3>
+  </div>
+   </div>
+
+
+		<div layout="row">
+      <div ng-controller="categoryController">
+  		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <h1 class="md-toolbar-tools">Categories</h1>
+       	<md-list ng-repeat="category in categories">
+  				<md-list-item>
+  			    <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
+
+  			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
+  				</md-list-item>
+       	</md-list>
+  	  </md-sidenav>
+      </div>
+	  <div flex>
+	  	<div layout="row">
+	  		<h2 style='margin-left: 20px; color:green' flex='60'>RECENTLY ADDED GIGS</h2>
+	  		<div flex='40'>
+			  	<md-input-container>
+		      	<label>Search Gigs</label>
+		      	<input type='text'>
+		    	</md-input-container>
+	    	</div>
+	  	</div>
+      <div ng-controller="gigsCtrl">
+      <!-- <md-list-item class="md-3-line" ng-repeat="gig in gigs">
+        <p>{{gig.title}}</p>
+        <p>{{gig.category}}</p>
+        <p>{{gig.description}}</p>
+        <p>{{gig.duration}}</p>
+      </md-list-item> -->
+
+        <md-grid-list
+               md-cols-sm="1" md-cols-md="3" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="2:2"
+              md-gutter="12px" md-gutter-gt-sm="8px">
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+          <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+            <md-grid-tile-footer>
+              <h3 style='color:green'><b>I will write a 3,000 word essay on anything</b></h3>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+
+
+        </md-grid-list>
+
+      </div>
+	  </div>
+	</div>
+	</div>
