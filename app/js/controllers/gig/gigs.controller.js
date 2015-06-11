@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('Tango')
-	.controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window', function($scope, gigService, categoryService,$window){
+	.controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', function($scope, gigService, categoryService,$window,Upload){
 	  gigService.allGigs().success(function(data){
 	    $scope.gigs = data;
+	    console.log(data);
 	  });
 		categoryService.getAll()
 			.success(function(data){
@@ -11,11 +12,23 @@ angular.module('Tango')
 			})
 		$scope.doAdd = function(gig){
 			var id = $window.localStorage.getItem('token');
-			gigService.addGig(gig,id)
-				.success(function(data){
-					$scope.gig = '';
-				})
-				.error(function(err){
-				});
+			gig.image = gig.image[0];
+			var upload = Upload.upload({
+				url:"http://localhost:8000/api/gigs",
+				method:"POST",
+				file:gig.image,
+				fields:gig
+			})
+			.success(function(data){
+				$scope.gig = '';
+			})
+			// gig.file = gig.image;
+			// gigService.addGig(gig,id)
+			// 	.success(function(data){
+			// 		// $scope.gig = '';
+			// 	})
+			// 	.error(function(err){
+			// 		console.log(err);
+			// 	});
 		};
 }]);

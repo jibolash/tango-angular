@@ -49,9 +49,9 @@ angular.module("Tango")
     };
 
     $scope.toastPosition = {
-      bottom: false,
+      bottom: true,
       top: true,
-      left: false,
+      left: true,
       right: true
     };
 
