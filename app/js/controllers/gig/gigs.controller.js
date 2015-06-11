@@ -11,6 +11,7 @@ angular.module('Tango')
 				$scope.categories = data;
 			})
 		$scope.doAdd = function(gig){
+			console.log(6,gig);
 			var id = $window.localStorage.getItem('token');
 			gig.image = gig.image[0];
 			var upload = Upload.upload({
