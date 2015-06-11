@@ -2,7 +2,7 @@
 
 var app = angular.module("Tango");
 
-app.factory('gigService', ['$http','baseUrl', function($http,baseUrl){
+app.factory('gigService', ['$http','baseUrl', 'Upload', function($http, baseUrl, Upload){
 
   var gigFactory = {};
 
@@ -31,8 +31,17 @@ app.factory('gigService', ['$http','baseUrl', function($http,baseUrl){
 
   };
 
-  gigFactory.searchCategory =function(categoryName){
+  gigFactory.searchCategory = function(categoryName){
     return $http.get(baseUrl + '/gigs/search/category?category='+categoryName);
+  };
+
+  gigFactory.uploadImage =  function(image, method, url, gig){
+    return Upload.upload({
+      url: baseUrl+ '/gigs',
+      method: POST,
+      data: gig,
+      file: image
+    });
   };
 
   return gigFactory;

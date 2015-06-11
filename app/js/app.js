@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module("Tango",['ngMaterial','ngRoute','ui.router'])
+angular.module("Tango",['ngMaterial','ngRoute','ui.router', 'ngFileUpload'])
 	.config(function($httpProvider, $mdThemingProvider){
     $httpProvider.interceptors.push('AuthInterceptor');
 

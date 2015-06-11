@@ -12,6 +12,7 @@
   "author": "Jibolash & stivenchy",
   "license": "ISC",
   "dependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "http-server": "^0.8.0"
   }
 }

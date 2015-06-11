@@ -27,25 +27,38 @@
 	    	</div>
 	  	</div>
       <div ng-controller="gigsCtrl">
-      	<form name='addGigForm' layout-margin>
+      	<form name='addGigForm' enctype="multipart/form-data" layout-margin>
+
           <label>What do you want to do?</label>
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
 			      <label>Gig Title</label>
 			      <input ng-model="gig.title" type="text" ng-required="true">
 			    </md-input-container>
+
           <label>Select the category in which your gig falls in</label>
 			    <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
 	        	<md-option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</md-option>
 	      	</md-select>
+
           <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
 			      <label>Description</label>
-			      <input ng-model="gig.description" type="text" ng-required="true">
+			      <textarea ng-model="gig.description" ng-required="true"></textarea>
 			    </md-input-container>
-          <label>How many days will this take you?</label>
+
+           <label>How many days will this take you?</label>
 			    <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
 	        	<md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
 	      	</md-select>
+
+          <label>Upload a photo that describe or relate to your Gig. It can be a sample of your work</label>
+            <div class="button" ngf-select ng-model="files">Upload using model $watch</div>
+            <div class="button" ngf-select ngf-change="upload($files)">Upload on file change</div>
+        <br>
+          <label>Everyone loves videos! Add a youtube link to a video of you doing what you do</label>
+          <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+            <input ng-model="gig.videoUrl" type="text" ng-required="false">
+          </md-input-container>
 
 	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
 	      </form>
