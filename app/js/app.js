@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router'])
-    .config(function($httpProvider, $mdThemingProvider) {
-        $httpProvider.interceptors.push('AuthInterceptor');
+angular.module("Tango",['ngMaterial','ngRoute','ui.router','ngFileUpload'])
+	.config(function($httpProvider, $mdThemingProvider){
+    $httpProvider.interceptors.push('AuthInterceptor');
 
-        $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('blue')
-            .backgroundPalette('brown');
+     $mdThemingProvider.theme('default')
+        .primaryPalette('green')
+        .accentPalette('blue')
+        .backgroundPalette('brown');
     });
 angular.module('Tango').run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
     $rootScope.loggedIn = Auth.isLoggedIn();

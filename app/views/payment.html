@@ -1,6 +1,7 @@
 	<div>
 		<md-toolbar layout="row">
 			<div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
+		  <md-button flex='15'>Add Gig</md-button>
 		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
@@ -27,32 +28,26 @@
 	    	</div>
 	  	</div>
       <div ng-controller="gigsCtrl">
-      	<form name='addGigForm' enctype="multipart/form-data" layout-margin>
-          <label>What do you want to do?</label>
+      	<form name='addGigForm' method="POST" action="'https://voguepay.com/pay/" layout-margin>
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
-			      <label>Gig Title</label>
+			      <label>Title</label>
 			      <input ng-model="gig.title" type="text" ng-required="true">
 			    </md-input-container>
-          <label>Select the category in which your gig falls in</label>
-			    <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
+
+			    <md-select placeholder="Category" ng-model="gig.category">
 	        	<md-option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</md-option>
 	      	</md-select>
-          <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
+
 			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
 			      <label>Description</label>
 			      <input ng-model="gig.description" type="text" ng-required="true">
-			    </md-input-container>
-			    <!-- <md-input-container  class="md-icon-float" style="margin-top: 0.03em;"> -->
-			     <label>Upload an image</label>
-			     <input type="file" ngf-select="true" ng-model="gig.image" ngf-change="fileSelected($files, $event)"/>
-			    <!-- </md-input-container> -->
-          
+			    </md-input-container>	
+			   
 			    <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
-			    	<label>How many days will this take you?</label>
-	        	<md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
-	      	</md-select>
+	        	<md-option ng-repeat="duration in [1,2,3,4]" value="{{duration}}">{{duration}}</md-option>
+	      	</md-select>		
 
-	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
+	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>   		
 	      </form>
       </div>
 	  </div>
