@@ -24,7 +24,4 @@ angular.module('Tango')
       })
     };
 
-
-
-
 }]);

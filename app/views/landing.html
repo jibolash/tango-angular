@@ -1,11 +1,11 @@
-	<div>
-		<md-toolbar layout="row">
-			<div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
-		  <md-button flex='15' ui-sref="add">Add Gig</md-button>
-		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
+<div>
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
+      <md-button flex='15' ui-sref="add">Add Gig</md-button>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
- 		</md-toolbar>
+    </md-toolbar>
 
    <div layout="row" style="background: url('app/assets/img/two.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x;">
     <div flex style="margin-top: 8em !important; padding: 1em !important; margin-bottom: .5em;">
@@ -19,29 +19,29 @@
    </div>
 
 
-		<div layout="row">
+    <div layout="row">
       <div ng-controller="categoryController">
-  		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <h1 class="md-toolbar-tools">Categories</h1>
-       	<md-list ng-repeat="category in categories">
-  				<md-list-item>
-  			    <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
+        <md-list ng-repeat="category in categories">
+          <md-list-item>
+            <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
 
-  			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
-  				</md-list-item>
-       	</md-list>
-  	  </md-sidenav>
+            <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
+          </md-list-item>
+        </md-list>
+      </md-sidenav>
       </div>
-	  <div flex>
-	  	<div layout="row">
-	  		<h2 style='margin-left: 20px; color:green' flex='60'>RECENTLY ADDED GIGS</h2>
-	  		<div flex='40'>
-			  	<md-input-container>
-		      	<label>Search Gigs</label>
-		      	<input type='text'>
-		    	</md-input-container>
-	    	</div>
-	  	</div>
+    <div flex>
+      <div layout="row">
+        <h2 style='margin-left: 20px; color:green' flex='60'>RECENTLY ADDED GIGS</h2>
+        <div flex='40'>
+          <md-input-container>
+            <label>Search Gigs</label>
+            <input type='text'>
+          </md-input-container>
+        </div>
+      </div>
       <div ng-controller="gigsCtrl">
       <!-- <md-list-item class="md-3-line" ng-repeat="gig in gigs">
         <p>{{gig.title}}</p>
@@ -53,7 +53,6 @@
         <md-grid-list md-cols-sm="1" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"             md-gutter="12px" md-gutter-gt-sm="8px">
 
           <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat='gig in gigs'>
-
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
             <md-grid-tile-footer>
               <a href='/#/gig/{{gig._id}}'><h3 style='color:green'><b>{{gig.title}}</b></h3></a>
@@ -63,6 +62,6 @@
         </md-grid-list>
 
       </div>
-	  </div>
-	</div>
-	</div>
+    </div>
+  </div>
+  </div>
