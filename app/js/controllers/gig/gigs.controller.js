@@ -13,8 +13,8 @@ angular.module('Tango')
     $scope.doAdd = function(gig){
       var id = $window.localStorage.getItem('token');
 
-      var localhost = "http://localhost:8000/api";
-      var heroku = "https://tangong-api.herokuapp.com/api";
+      var localhost = "http://localhost:8000/api/gigs";
+      var heroku = "https://tangong-api.herokuapp.com/api/gigs";
 
       gig.image = gig.image[0];
       var upload = Upload.upload({
@@ -24,6 +24,7 @@ angular.module('Tango')
         fields: gig
       })
       .success(function(data){
+        console.log(data);
         $scope.gig = '';
       })
     };
