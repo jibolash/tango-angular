@@ -1,68 +1,60 @@
-	<div>
-		<md-toolbar layout="row">
-			<div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
-		  <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
+<div>
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
- 		</md-toolbar>
+    </md-toolbar>
 
-		<div layout="row">
+    <div layout="row">
       <div ng-controller="categoryController">
-  		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <h1 class="md-toolbar-tools">Categories</h1>
-       	<md-list ng-repeat="category in categories">
-  				<md-list-item>
-  			    <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
+        <md-list ng-repeat="category in categories">
+          <md-list-item>
+            <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
 
-  			    <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
-  				</md-list-item>
-       	</md-list>
-  	  </md-sidenav>
+            <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
+          </md-list-item>
+        </md-list>
+      </md-sidenav>
       </div>
-	  <div flex>
-	  	<div layout="row">
-	  		<h2 style='margin-left: 20px; color:green' flex='60'>ADD GIGS</h2>
-	  		<div flex='40'>
+    <div flex>
+      <div layout="row">
+        <h2 style='margin-left: 20px; color:green' flex='60'>ADD GIGS</h2>
+        <div flex='40'>
 
-	    	</div>
-	  	</div>
+        </div>
+      </div>
       <div ng-controller="gigsCtrl">
-      	<form name='addGigForm' enctype="multipart/form-data" layout-margin>
-
+        <form name='addGigForm' enctype="multipart/form-data" layout-margin>
           <label>What do you want to do?</label>
-			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
-			      <label>Gig Title</label>
-			      <input ng-model="gig.title" type="text" ng-required="true">
-			    </md-input-container>
-
-          <label>Select the category in which your gig falls in</label>
-			    <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
-	        	<md-option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</md-option>
-	      	</md-select>
-
-          <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
-			    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
-			      <label>Description</label>
-			      <textarea ng-model="gig.description" ng-required="true"></textarea>
-			    </md-input-container>
-
-           <label>How many days will this take you?</label>
-			    <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
-	        	<md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
-	      	</md-select>
-
-          <label>Upload a photo that describe or relate to your Gig. It can be a sample of your work</label>
-            <div class="button" ngf-select ng-model="files">Upload using model $watch</div>
-            <div class="button" ngf-select ngf-change="upload($files)">Upload on file change</div>
-        <br>
-          <label>Everyone loves videos! Add a youtube link to a video of you doing what you do</label>
           <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
-            <input ng-model="gig.videoUrl" type="text" ng-required="false">
+            <label>Gig Title</label>
+            <input ng-model="gig.title" type="text" ng-required="true">
           </md-input-container>
+          <label>Select the category in which your gig falls in</label>
+          <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
+            <md-option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</md-option>
+          </md-select>
+          <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
+          <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+            <label>Description</label>
+            <input ng-model="gig.description" type="text" ng-required="true">
+          </md-input-container>
+          <!-- <md-input-container  class="md-icon-float" style="margin-top: 0.03em;"> -->
+           <label>Upload an image</label>
+           <input type="file" ngf-select="true" ng-model="gig.image" ngf-change="fileSelected($files, $event)"/>
+          <!-- </md-input-container> -->
 
-	      	<md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
-	      </form>
+          <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
+            <label>How many days will this take you?</label>
+            <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
+          </md-select>
+
+          <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
+        </form>
       </div>
-	  </div>
-	</div>
-	</div>
+    </div>
+  </div>
+  </div>

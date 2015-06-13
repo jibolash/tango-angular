@@ -53,9 +53,10 @@
         <md-grid-list md-cols-sm="1" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"             md-gutter="12px" md-gutter-gt-sm="8px">
 
           <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat='gig in gigs'>
-            <img src="app/assets/img/one.jpg" width="235.516" height="220">
+
+            <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
             <md-grid-tile-footer>
-              <h3 style='color:green'><b>{{gig.title}}</b></h3>
+              <a href='/#/gig/{{gig._id}}'><h3 style='color:green'><b>{{gig.title}}</b></h3></a>
             </md-grid-tile-footer>
           </md-grid-tile>
 

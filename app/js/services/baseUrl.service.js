@@ -1,7 +1,8 @@
-// 'http://localhost:8000/api';
- // https://tangong-api.herokuapp.com/api
-
 'use strict';
+
 var app = angular.module("Tango");
 
-app.value("baseUrl","http://localhost:8000/api");
+var localhost = "http://localhost:8000/api";
+var heroku = "https://tangong-api.herokuapp.com/api";
+
+app.value("baseUrl", heroku);
