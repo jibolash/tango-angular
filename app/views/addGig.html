@@ -1,6 +1,7 @@
 <div>
     <md-toolbar layout="row">
       <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
+      <div ng-if="loggedIn">Hello {{user.username}}</div>
       <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
@@ -43,8 +44,8 @@
             <input ng-model="gig.description" type="text" ng-required="true">
           </md-input-container>
           <!-- <md-input-container  class="md-icon-float" style="margin-top: 0.03em;"> -->
-           <label>Upload an image</label>
-           <input type="file" ngf-select="true" ng-model="gig.image" ngf-change="fileSelected($files, $event)"/>
+          <label>Upload a that describes or relates to your Gig. It can be a sample of your work</label>
+           <div><input type="file" ngf-select="true" ng-model="gig.image" ngf-change="fileSelected($files, $event)"/></div>
           <!-- </md-input-container> -->
 
           <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">

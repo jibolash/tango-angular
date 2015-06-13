@@ -2,9 +2,11 @@
 
 angular.module('Tango')
   .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', function($scope, gigService, categoryService,$window,Upload){
+
     gigService.allGigs().success(function(data){
       $scope.gigs = data;
     });
+
     categoryService.getAll()
       .success(function(data){
         $scope.categories = data;
@@ -18,15 +20,14 @@ angular.module('Tango')
 
       gig.image = gig.image[0];
       var upload = Upload.upload({
-        url: heroku,
+        url: localhost,
         method: "POST",
         file: gig.image,
         fields: gig
       })
       .success(function(data){
-        console.log(data);
         $scope.gig = '';
-      })
+        $location();
+      });
     };
-
 }]);

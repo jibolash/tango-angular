@@ -62,13 +62,20 @@ angular.module("Tango")
     };
 
     $scope.doSignup = function(userData, ev){
-      userService.addUser(userData).success(function(data){
-        $mdDialog.hide();
-        $mdToast.show({
-          templateUrl: 'app/views/proceed.html',
-          hideDelay: 6000,
-          position: $scope.getToastPosition()
-        });
-     });
+      userService.addUser(userData)
+        .success(function(data){
+          if(data.name === "MongoError"){
+            $scope.signupError = true;
+          }
+          else{
+            $mdDialog.hide();
+            $mdToast.show({
+              templateUrl: 'app/views/proceed.html',
+              hideDelay: 6000,
+              position: $scope.getToastPosition()
+            });
+            $scope.signupError = false;
+          }
+       });
     };
   }]);

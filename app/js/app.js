@@ -6,12 +6,14 @@ angular.module("Tango",['ngMaterial','ngRoute','ui.router','ngFileUpload'])
 
      $mdThemingProvider.theme('default')
         .primaryPalette('green')
-        .accentPalette('blue')
-        .backgroundPalette('brown');
+        .accentPalette('brown')
+        .backgroundPalette('light-green');
     });
-angular.module('Tango').run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
+
+angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
+
     $rootScope.loggedIn = Auth.isLoggedIn();
-    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+    $rootScope.$on('$stateChangeStart', function(event, next, current) {
         $rootScope.loggedIn = Auth.isLoggedIn();
         Auth.getUser().success(function(data) {
             $rootScope.user = data;
@@ -21,7 +23,7 @@ angular.module('Tango').run(['$rootScope', '$location', 'Auth', function($rootSc
 
 angular.module("Tango")
     .config(function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/")
+        $urlRouterProvider.otherwise("/");
         $stateProvider
             .state('home', {
                 url: "/",
@@ -31,8 +33,8 @@ angular.module("Tango")
                 url: "/gigs/new",
                 templateUrl: "app/views/addGig.html"
             })
-            .state('gig', {
+            .state('gigDetail', {
                 url: "/gig/:gigid",
-                templateUrl: "app/views/book.detail.html"
+                templateUrl: "app/views/gig.detail.html"
             });
     });
