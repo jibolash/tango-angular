@@ -31,4 +31,8 @@ angular.module("Tango")
                 url: "/gigs/new",
                 templateUrl: "app/views/addGig.html"
             })
+            .state('gig', {
+                url: "/gig/:gigid",
+                templateUrl: "app/views/book.detail.html"
+            });
     });

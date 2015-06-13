@@ -55,7 +55,7 @@
           <md-grid-tile  md-rowspan="2" md-colspan="2" md-colspan-sm="1" ng-repeat='gig in gigs'>
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
             <md-grid-tile-footer>
-              <h3 style='color:green'><b>{{gig.title}}</b></h3>
+              <a href='/#/gig/{{gig._id}}'><h3 style='color:green'><b>{{gig.title}}</b></h3></a>
             </md-grid-tile-footer>
           </md-grid-tile>
 
