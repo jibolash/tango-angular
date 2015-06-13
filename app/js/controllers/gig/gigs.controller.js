@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', function($scope, gigService, categoryService,$window,Upload){
+  .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', '$location', function($scope, gigService, categoryService, $window, Upload, $location){
 
     gigService.allGigs().success(function(data){
       $scope.gigs = data;
@@ -11,6 +11,10 @@ angular.module('Tango')
       .success(function(data){
         $scope.categories = data;
       });
+
+    $scope.postGig  = function(){
+      $location.path('/gigs/new')
+    };
 
     $scope.doAdd = function(gig){
       var id = $window.localStorage.getItem('token');

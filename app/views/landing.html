@@ -1,22 +1,24 @@
 <div>
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
-      <div>Hello {{user.username}}</div>
-      <md-button flex='15' ui-sref="add">Add Gig</md-button>
-      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
-      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
-      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
+    <md-toolbar layout="row" style="background:white">
+      <div class="md-toolbar-tools" layout-align-gt-sm="left"><img src="app/assets/img/tango_logo.svg"></div>
+      <md-button flex='15' ng-click="" style='color:black'>BROWSE</md-button>
+      <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
+      <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
     </md-toolbar>
 
-   <div layout="row" style="background: url('app/assets/img/two.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x;">
-    <div flex style="margin-top: 8em !important; padding: 1em !important; margin-bottom: .5em;">
-    <h1 class='md-display-3' layout-align="center center">
-      <center style='color:green'><b>&#8358;1000. EVERYTHING</b></center>
-    </h1>
-    <h3 class="md-subhead" hide-sm>
-      <center style='font-family:"Comic Sans MS", cursive, sans-serif; font-size:26px'>Do the things you love and make money while at it.<br> Get things done at &#8358;1000</center>
-    </h3>
-  </div>
+   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:42em; width:89em">
+      <div flex>
+        <h1 class='md-display-3' layout-align="center center">
+          <center style='color:white;';><b>Do the things you love<br>and make money while at it.<br></b></center>
+        </h1>
+        <h3 class="md-subhead" hide-sm>
+          <center style='font-size:26px'> Somebody, somewhere is ready to pay you <b style='color:black'>&#8358;1000</b> for that unique skill of yours, whatever it is</center>
+        </h3>
+        <hr style='width: 50em'>
+      </div>
    </div>
 
 

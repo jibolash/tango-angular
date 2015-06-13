@@ -1,30 +1,17 @@
 <div>
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
-      <div ng-if="loggedIn">Hello {{user.username}}</div>
-      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
-      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
-      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
+   <md-toolbar layout="row" style="background:white" >
+      <div class="md-toolbar-tools" layout-align-gt-sm="left"><img src="app/assets/img/tango_logo.svg"></div>
+      <md-button flex='15' ng-click="" style='color:black'>BROWSE</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
     </md-toolbar>
 
-    <div layout="row">
-      <div ng-controller="categoryController">
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-        <h1 class="md-toolbar-tools">Categories</h1>
-        <md-list ng-repeat="category in categories">
-          <md-list-item>
-            <p> <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}} </p>
-
-            <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
-          </md-list-item>
-        </md-list>
-      </md-sidenav>
-      </div>
+    <div layout="row" style='margin-left:150px'>
     <div flex>
       <div layout="row">
         <h2 style='margin-left: 20px; color:green' flex='60'>ADD GIGS</h2>
         <div flex='40'>
-
         </div>
       </div>
       <div ng-controller="gigsCtrl">
@@ -32,7 +19,7 @@
           <label>What do you want to do?</label>
           <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
             <label>Gig Title</label>
-            <input ng-model="gig.title" type="text" ng-required="true">
+            <input ng-model="gig.title" type="text" ng-required="true" style='width:40em'>
           </md-input-container>
           <label>Select the category in which your gig falls in</label>
           <md-select placeholder="Category" ng-model="gig.category" style='align:center'>
@@ -41,15 +28,15 @@
           <label>Tell us in details what you have to offer. Be as descriptive as possible.</label>
           <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
             <label>Description</label>
-            <input ng-model="gig.description" type="text" ng-required="true">
+            <div style='padding-top:1em'><textarea ng-model="gig.description" ng-required="true" style='width:40em'></textarea></div>
           </md-input-container>
           <!-- <md-input-container  class="md-icon-float" style="margin-top: 0.03em;"> -->
-          <label>Upload a that describes or relates to your Gig. It can be a sample of your work</label>
+          <label>Upload a picture that describes or relates to your Gig. It can be a sample of your work</label>
            <div><input type="file" ngf-select="true" ng-model="gig.image" ngf-change="fileSelected($files, $event)"/></div>
           <!-- </md-input-container> -->
-
+          <br>
+          <label>How many days will this take you?</label>
           <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
-            <label>How many days will this take you?</label>
             <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
           </md-select>
 

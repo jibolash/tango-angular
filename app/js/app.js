@@ -5,7 +5,7 @@ angular.module("Tango",['ngMaterial','ngRoute','ui.router','ngFileUpload'])
     $httpProvider.interceptors.push('AuthInterceptor');
 
      $mdThemingProvider.theme('default')
-        .primaryPalette('green')
+        .primaryPalette('blue-grey')
         .accentPalette('brown')
         .backgroundPalette('light-green');
     });
@@ -36,5 +36,10 @@ angular.module("Tango")
             .state('gigDetail', {
                 url: "/gig/:gigid",
                 templateUrl: "app/views/gig.detail.html"
+            })
+            .state('help', {
+                url: "/help",
+                templateUrl: "app/views/help.html",
+                controller: "helpCtlr"
             });
     });
