@@ -1,13 +1,12 @@
 <div>
   <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
-<div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>      <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+    <div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>        <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
       <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
       <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
       <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
     </md-toolbar>
-
 
   <div ng-controller="gigDetailCtrl" style='width:700px; margin-top:50px' style="background:white">
     <md-content class="md-padding" flex style="background:white">
@@ -28,6 +27,8 @@
           </md-content>
         </md-tab>
       </md-tabs>
+        <md-button ng-click="" style="background: green; border-radius:5px" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
+        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
     </md-content>
   </div>
 
