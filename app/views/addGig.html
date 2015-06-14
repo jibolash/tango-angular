@@ -1,7 +1,6 @@
 <div>
-   <md-toolbar layout="row" style="background:white" >
-      <div class="md-toolbar-tools" layout-align-gt-sm="left"><img src="app/assets/img/tango_logo.svg"></div>
-      <md-button flex='15' ng-click="" style='color:black'>BROWSE</md-button>
+   <md-toolbar layout="row" style="background:white; position:fixed; top:0px" >
+<div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>      <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
       <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
       <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
       <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
@@ -40,7 +39,7 @@
             <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
           </md-select>
 
-          <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)">Add</md-button>
+          <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)" style="background: green; border-radius:5px; color:white">Add</md-button>
         </form>
       </div>
     </div>

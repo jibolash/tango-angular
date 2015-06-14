@@ -30,8 +30,11 @@ angular.module('Tango')
         fields: gig
       })
       .success(function(data){
-        $scope.gig = '';
-        $location();
+        $scope.showRecentGigs();
       });
+    };
+
+    $scope.showRecentGigs = function(){
+      $location.path('/gigs');
     };
 }]);

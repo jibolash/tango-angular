@@ -41,5 +41,10 @@ angular.module("Tango")
                 url: "/help",
                 templateUrl: "app/views/help.html",
                 controller: "helpCtlr"
+            })
+            .state('gigs', {
+                url: "/gigs",
+                templateUrl: "app/views/gigs.view.html",
+                controller: "gigsCtrl"
             });
     });

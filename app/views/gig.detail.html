@@ -1,19 +1,19 @@
 <div>
-  <md-toolbar layout="row">
-    <div class="md-toolbar-tools" layout-align-gt-sm="left"><b style='font-size:50px'>Tango</b></div>
-    <div ng-if="loggedIn">Hello {{user.username}}</div>
-    <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn">Login</md-button>
-    <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn">Logout</md-button>
-    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn">Signup</md-button>
-  </md-toolbar>
+  <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
+<div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>      <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+      <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
+      <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    </md-toolbar>
 
 
-  <div ng-controller="gigDetailCtrl" style='width:700px'>
-    <md-content class="md-padding" flex>
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="gist">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Gig Gist</h1>
+  <div ng-controller="gigDetailCtrl" style='width:700px; margin-top:50px' style="background:white">
+    <md-content class="md-padding" flex style="background:white">
+      <md-tabs md-dynamic-height md-border-bottom style="background:white">
+        <md-tab label="gist" style="background:white" >
+          <md-content class="md-padding" style="background:white">
             <img ng-src={{gigInfo.imageUrl}} width="470" height="440">
             <h3>{{gigInfo.title}}</h3>
             <h4>Categoy: {{gigInfo.category.name}}</h4>
@@ -22,7 +22,7 @@
           </md-content>
         </md-tab>
         <md-tab label="description">
-          <md-content class="md-padding">
+          <md-content class="md-padding" style="background:white">
             <h1 class="md-display-2">Gig Description</h1>
             <div>{{gigInfo.description}}</div>
           </md-content>
