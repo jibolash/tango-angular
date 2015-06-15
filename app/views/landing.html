@@ -8,9 +8,9 @@
     <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
     <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
     <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <md-button flex='15' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
-  <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:39em; width:89em">
+  <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:39em; width:100%">
     <div flex>
       <h1 class='md-display-3' layout-align="center center">
       <center style='color:white; padding-top:8%; padding-right:8%; text-align:center'><b>Do the things you love<br>and make money while at it.<br></b></center>
@@ -26,9 +26,9 @@
       <div layout="row">
         <h2 style='margin-left: 20px; color:black' flex='60'>RECENTLY ADDED GIGS</h2>
       </div>
-      <div ng-controller="gigsCtrl">
-        <div ng-repeat='gig in gigs | limitTo: 4' style="background:white;">
-          <md-card style="margin-left: 10px; width: 320px; float: left;">
+      <div ng-controller="gigsCtrl" layout="row" style="padding:0 3em">
+        <div ng-repeat='gig in gigs | limitTo: 4' style="background:white; padding-left:2em">
+          <md-card style="margin-left: 10px; width: 320px; height: 400px; float: left;">
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
             <md-card-content style="background:white">
               <h2 class="md-title">{{gig.title}}</h2>
