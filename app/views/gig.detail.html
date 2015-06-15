@@ -27,8 +27,8 @@
           </md-content>
         </md-tab>
       </md-tabs>
-        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px" ng-controller="editGigCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
-        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px; display:inline" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
+        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline !important; padding: 9px !important;" ng-controller="editGigCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
+        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
     </md-content>
   </div>
 </div>
