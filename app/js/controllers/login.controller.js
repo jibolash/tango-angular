@@ -82,7 +82,7 @@ angular.module("Tango")
     $scope.showGridBottomSheet = function($event){
       $scope.alert = '';
         $mdBottomSheet.show({
-          template: '',
+          templateUrl: "app/views/bottomsheet.html",
           targetEvent: $event
         }).then(function(clickedItem){
           $scope.alert = clickedItem.name + ' clicked!';
