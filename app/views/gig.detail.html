@@ -16,7 +16,7 @@
             <img ng-src={{gigInfo.imageUrl}} width="470" height="440">
             <h3>{{gigInfo.title}}</h3>
             <h4>Categoy: {{gigInfo.category.name}}</h4>
-            <p>Added by: {{gigInfo.addedBy.username}}</p>
+            <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer'>Added by: {{gigInfo.addedBy.username}}</p>
             <p>Duration: {{gigInfo.duration}} Days</p>
           </md-content>
         </md-tab>
@@ -27,9 +27,8 @@
           </md-content>
         </md-tab>
       </md-tabs>
-        <md-button ng-click="editGig(gigInfo._id)" style="background: green; border-radius:5px" ng-controller="editGigCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
-        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
+        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px" ng-controller="editGigCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
+        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px; display:inline" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
     </md-content>
   </div>
-
 </div>

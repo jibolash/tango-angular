@@ -1,0 +1,30 @@
+<div>
+  <md-toolbar layout="row" style="background:white">
+    <div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>
+      <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+      <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+  </md-toolbar>
+<div style='margin-left: 20em; width: 50em' ng-controller='userProfileCtrl'>
+  <h3>Username</h3>
+  <p>{{user.username}}</p>
+
+  <h3>Email</h3>
+  <p>{{user.email}}</p>
+  <h3>{{user.username + "'s" +" "+ "Gigs"}}</h3>
+  <div  ng-repeat='userGig in userGigs' style="background:white;">
+      <md-card style="margin-left: 10px; width: 330px; float: left;">
+          <img ng-src="{{userGig.imageUrl}}" width="235.516" height="220">
+          <md-card-content style="background:white">
+              <h2 class="md-title">{{userGig.title}}</h2>
+             <p>{{(userGig.description).substring(0, 50) + '...'}}</p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center" style="background:white">
+              <md-button ui-sref="gigDetail({gigid: userGig._id})">View Details</md-button>
+          </div>
+      </md-card>
+  </div>
+</div>
+</div>
