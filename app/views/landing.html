@@ -1,46 +1,45 @@
 <div>
-    <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
-<div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>
-      <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
-      <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
-      <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
-      <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
-    </md-toolbar>
-
-   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:48em; width:89em">
-      <div flex>
-        <h1 class='md-display-3' layout-align="center center">
-          <center style='color:white; margin-top:80px'><b>Do the things you love<br>and make money while at it.<br></b></center>
-        </h1>
-        <h3 class="md-subhead" hide-sm>
-          <center style='font-size:26px'> Somebody, somewhere is ready to pay you <b style='color:black'>&#8358;1000</b> for that unique skill of yours, whatever it is</center>
-        </h3>
-        <hr style='width: 50em'>
-      </div>
-   </div>
-
-
-    <div layout="row" style='padding-left: 1em'>
+  <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
+    <div class="md-toolbar-tools" layout-align-gt-sm="left">
+      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+    </div>
+    <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='15' ng-click="logout($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>Logout [{{user.username}}]</md-button>
+    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+  </md-toolbar>
+  <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:39em; width:89em">
+    <div flex>
+      <h1 class='md-display-3' layout-align="center center">
+      <center style='color:white; padding-top:8%; padding-right:8%; text-align:center'><b>Do the things you love<br>and make money while at it.<br></b></center>
+    </h1>
+      <h3 class="md-subhead" hide-sm>
+      <center style='font-size:26px; padding-right:8%; text-align:center'> Somebody, somewhere is ready to pay you <b style='color:black'>&#8358;1000</b> for that unique skill of yours, whatever it is</center>
+    </h3>
+      <hr style='width: 50em'>
+    </div>
+  </div>
+  <div layout="row" style='padding-left: 1em'>
     <div flex>
       <div layout="row">
         <h2 style='margin-left: 20px; color:black' flex='60'>RECENTLY ADDED GIGS</h2>
       </div>
       <div ng-controller="gigsCtrl">
-          <div  ng-repeat='gig in gigs | limitTo: 4' style="background:white;">
-              <md-card style="margin-left: 10px; width: 320px; float: left;">
-                  <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
-                  <md-card-content style="background:white">
-                      <h2 class="md-title">{{gig.title}}</h2>
-                     <p>{{(gig.description).substring(0, 50) + '...'}}</p>
-                  </md-card-content>
-                  <div class="md-actions" layout="row" layout-align="end center" style="background:white">
-                      <md-button ui-sref="gigDetail({gigid: gig._id})">View Details</md-button>
-                  </div>
-              </md-card>
-          </div>
+        <div ng-repeat='gig in gigs | limitTo: 4' style="background:white;">
+          <md-card style="margin-left: 10px; width: 320px; float: left;">
+            <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
+            <md-card-content style="background:white">
+              <h2 class="md-title">{{gig.title}}</h2>
+              <p>{{(gig.description).substring(0, 50) + '...'}}</p>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center" style="background:white">
+              <md-button ui-sref="gigDetail({gigid: gig._id})">View Details</md-button>
+            </div>
+          </md-card>
         </div>
+      </div>
     </div>
   </div>
-  </div>
+</div>
