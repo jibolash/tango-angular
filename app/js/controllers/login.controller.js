@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("Tango")
-  .controller("loginCtrl",['$scope', '$mdDialog', '$mdToast', '$animate', '$location', '$rootScope', 'userService', 'Auth', function($scope, $mdDialog, $mdToast, $animate, $location, $rootScope, userService, Auth){
+  .controller("loginCtrl",['$scope', '$mdDialog', '$mdToast', '$animate', '$location', '$rootScope', 'userService', 'Auth', '$timeout', '$mdBottomSheet', function($scope, $mdDialog, $mdToast, $animate, $location, $rootScope, userService, Auth, $timeout, $mdBottomSheet){
 
     $scope.login = function(ev){
       $mdDialog.show({
@@ -77,5 +77,15 @@ angular.module("Tango")
             $scope.signupError = false;
           }
        });
+    };
+
+    $scope.showGridBottomSheet = function($event){
+      $scope.alert = '';
+        $mdBottomSheet.show({
+          template: '',
+          targetEvent: $event
+        }).then(function(clickedItem){
+          $scope.alert = clickedItem.name + ' clicked!';
+        });
     };
   }]);

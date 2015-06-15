@@ -6,7 +6,5 @@ angular.module('Tango')
     gigService.oneGig($stateParams.gigid)
       .success(function(data){
         $scope.gigInfo = data;
-        console.log($scope.gigInfo);
       });
-
 }]);

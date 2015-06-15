@@ -46,5 +46,10 @@ angular.module("Tango")
                 url: "/gigs",
                 templateUrl: "app/views/gigs.view.html",
                 controller: "gigsCtrl"
+            })
+            .state('edit', {
+                url: '/gig/edit/:gigid',
+                templateUrl: 'app/views/edit.gig.html',
+                controller: "editGigCtrl"
             });
     });
