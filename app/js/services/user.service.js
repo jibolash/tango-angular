@@ -24,11 +24,16 @@ app.factory('userService', ['$http','baseUrl', function($http,baseUrl){
   };
 
   userFactory.editUser = function(userid, userData){
-    return $http.put(baseUrl + 'user/'+ userid, userData);
+    return $http.put(baseUrl + '/user/'+ userid, userData);
   };
 
   userFactory.deleteUser = function(userid){
-    return $http.delete(baseUrl + 'user/'+userid);
+    return $http.delete(baseUrl + '/user/'+userid);
+  };
+
+  userFactory.userGigs = function(username){
+    var promise = $http.get(baseUrl + '/gigs/search/user/' + username);
+    return promise;
   };
 
   return userFactory;

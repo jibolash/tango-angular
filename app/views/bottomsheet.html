@@ -14,7 +14,7 @@
         <md-icon md-svg-src='app/assets/img/face.svg' ng-if="loggedIn" style='width:50px; height:50px'></md-icon>
       </div>
       <div>
-        <md-button ng-click="" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black; margin-left:-20px'>My Profile</md-button>
+        <md-button ui-sref="profile({username: user.username})" ng-if="loggedIn" style='color:black; margin-left:-20px'>MY PROFILE</md-button>
       </div>
     </div>
   </div>
