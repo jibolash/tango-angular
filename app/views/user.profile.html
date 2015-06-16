@@ -10,9 +10,13 @@
 <div style='margin-left: 20em; width: 50em' ng-controller='userProfileCtrl'>
   <h3>Username</h3>
   <p>{{user.username}}</p>
-
+  <p>{{user._id}}</p>
   <h3>Email</h3>
   <p>{{user.email}}</p>
+  <md-button style="background: green; border-radius:5px; display: inline; padding: px;">EDIT PROFILE</md-button>
+
+  <md-button style="background: red; border-radius:5px;">DELETE PROFILE</md-button>
+
   <h3>{{user.username + "'s" +" "+ "Gigs"}}</h3>
   <div  ng-repeat='userGig in userGigs' style="background:white;">
       <md-card style="margin-left: 10px; width: 330px; float: left;">

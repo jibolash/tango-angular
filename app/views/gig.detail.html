@@ -8,7 +8,7 @@
       <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
     </md-toolbar>
 
-  <div ng-controller="gigDetailCtrl" style='width:700px; margin-top:50px' style="background:white">
+  <div ng-controller="gigDetailCtrl" style='width:700px; margin-top:50px' style="background:white" layout='row'>
     <md-content class="md-padding" flex style="background:white">
       <md-tabs md-dynamic-height md-border-bottom style="background:white">
         <md-tab label="gist" style="background:white" >
@@ -27,8 +27,9 @@
           </md-content>
         </md-tab>
       </md-tabs>
-        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline !important; padding: 9px !important;" ng-controller="editGigCtrl" ng-show='user.username === gigInfo.addedBy.username'>EDIT GIG</md-button>
-        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show='user.username === gigInfo.addedBy.username'>DELETE GIG</md-button>
+        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-controller="editGigCtrl" ng-show="user.username === gigInfo.addedBy.username">EDIT GIG</md-button>
+        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG</md-button>
     </md-content>
+    <md-button style="background: green; border-radius:5px; display: inline; padding: 9px; height:90px; margin-top:13em; color:white; font-size:20px"><b>ORDER NOW (&#8358;1000)</b></md-button>
   </div>
 </div>
