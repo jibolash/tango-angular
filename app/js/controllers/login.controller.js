@@ -46,6 +46,7 @@ angular.module("Tango")
       Auth.logout();
       $scope.user = {};
       $rootScope.loggedIn = false;
+      $location.path('/');
     };
 
     $scope.toastPosition = {
