@@ -24,7 +24,7 @@ angular.module('Tango')
 
       gig.image = gig.image[0];
       var upload = Upload.upload({
-        url: heroku,
+        url: localhost,
         method: "POST",
         file: gig.image,
         fields: gig
@@ -33,7 +33,7 @@ angular.module('Tango')
         $scope.showRecentGigs();
       });
     };
-
+    //its not even trivial, its done
     $scope.showRecentGigs = function(){
       $location.path('/gigs');
     };
