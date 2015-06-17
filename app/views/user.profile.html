@@ -12,9 +12,8 @@
   <p>{{userData.username}}</p>
   <h3>Email</h3>
   <p>{{userData.email}}</p>
-  <md-button style="background: green; border-radius:5px; display: inline; padding: px;">EDIT PROFILE</md-button>
-
-  <md-button style="background: red; border-radius:5px;">DELETE PROFILE</md-button>
+  <md-button style="background: green; border-radius:5px; display: inline; padding: px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
+  <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
 
   <h3>{{userData.username + "'s" +" "+ "Gigs"}}</h3>
   <div  ng-repeat='userGig in userGigs' style="background:white;">

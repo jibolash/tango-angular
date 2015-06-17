@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', '$location', '$mdDialog', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog){
+  .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', '$location', '$mdDialog', '$mdToast', '$animate', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $animate){
 
     gigService.allGigs().success(function(data){
       $scope.gigs = data;
@@ -41,8 +41,25 @@ angular.module('Tango')
     $scope.deleteGig = function(gigid){
       gigService.deleteGig(gigid).success(function(data){
         $location.path('/gigs');
-        console.log(2, data);
+        $mdToast.show({
+          templateUrl: 'app/views/deleteToast.html',
+          hideDelay: 6000,
+          position: $scope.getToastPosition()
+        });
       });
+    };
+
+    $scope.toastPosition = {
+      bottom: true,
+      top: false,
+      left: true,
+      right: false
+    };
+
+    $scope.getToastPosition = function() {
+      return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
     };
 
     $scope.showConfirm = function(ev, gigid) {

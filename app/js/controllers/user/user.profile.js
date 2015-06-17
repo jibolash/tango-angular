@@ -8,14 +8,27 @@ angular.module('Tango')
     });
 
     userService.userGigs($stateParams.username).success(function(data){
+
         $scope.userGigs = data;
-        console.log($scope.userGigs);
       });
 
-    // $scope.showProfile = function(username){
-    //   userService.userGigs(username).success(function(data){
-    //     $scope.userGigs = data;
-    //     console.log($scope.userGigs);
+    // $scope.deleteUser = function(userid){
+    //   userService.deleteUser(userid).success(function(data){
+    //     $location.path('/gigs');
     //   });
+    // };
+
+    // $scope.showConfirm = function(ev, gigid) {
+    //   console.log(1, gigid)
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Do you want to permanently delete this gig?')
+    //     .content('There is no way for you to retrieve it...')
+    //     .ariaLabel('Lucky day')
+    //     .ok('Yes')
+    //     .cancel('No')
+    //     .targetEvent(ev);
+    //   $mdDialog.show(confirm).then(function() {
+    //     $scope.deleteGig(gigid);
+    //   }, function() {});
     // };
   }]);
