@@ -22,44 +22,49 @@ angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootSc
 }]);
 
 angular.module("Tango")
-    .config(function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/");
-        $stateProvider
-            .state('home', {
-                url: "/",
-                templateUrl: "app/views/landing.html"
-            })
-            .state('add', {
-                url: "/gigs/new",
-                templateUrl: "app/views/addGig.html"
-            })
-            .state('gigDetail', {
-                url: "/gig/:gigid",
-                templateUrl: "app/views/gig.detail.html"
-            })
-            .state('help', {
-                url: "/help",
-                templateUrl: "app/views/help.html",
-                controller: "helpCtlr"
-            })
-            .state('gigs', {
-                url: "/gigs",
-                templateUrl: "app/views/gigs.view.html",
-                controller: "gigsCtrl"
-            })
-            .state('editGig', {
-                url: '/gig/edit/:gigid',
-                templateUrl: 'app/views/edit.gig.html',
-                controller: "editGigCtrl"
-            })
-            .state('profile', {
-                url: '/user/profile/:username',
-                templateUrl: 'app/views/user.profile.html',
-                controller: "userProfileCtrl"
-            })
-            .state('pay', {
-                url: '/gig/pay/:gigid',
-                templateUrl: 'app/views/payment.html',
-                controller: "editGigCtrl"
-            });
-    });
+  .config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
+    $stateProvider
+      .state('home', {
+        url: "/",
+        templateUrl: "app/views/landing.html"
+      })
+      .state('add', {
+        url: "/gigs/new",
+        templateUrl: "app/views/addGig.html"
+      })
+      .state('gigDetail', {
+        url: "/gig/:gigid",
+        templateUrl: "app/views/gig.detail.html"
+      })
+      .state('help', {
+        url: "/help",
+        templateUrl: "app/views/help.html",
+        controller: "helpCtlr"
+      })
+      .state('gigs', {
+        url: "/gigs",
+        templateUrl: "app/views/gigs.view.html",
+        controller: "gigsCtrl"
+      })
+      .state('editGig', {
+        url: '/gig/edit/:gigid',
+        templateUrl: 'app/views/edit.gig.html',
+        controller: "editGigCtrl"
+      })
+      .state('checkCategory', {
+        url: '/gigs/category/:catid',
+        templateUrl: 'app/views/category.view.html',
+        controller: "categoryController"
+      })
+      .state('profile', {
+        url: '/user/profile/:username',
+        templateUrl: 'app/views/user.profile.html',
+        controller: "userProfileCtrl"
+      })
+      .state('pay', {
+        url: '/gig/pay/:gigid',
+        templateUrl: 'app/views/payment.html',
+        controller: "editGigCtrl"
+      });
+  });
