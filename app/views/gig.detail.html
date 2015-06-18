@@ -1,17 +1,19 @@
 <div>
   <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
-    <div class="md-toolbar-tools" layout-align-gt-sm="left"><a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a></div>        <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
-      <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-      <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-      <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
-      <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-      <md-button flex='15'  ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
-    </md-toolbar>
-
+    <div class="md-toolbar-tools" layout-align-gt-sm="left">
+      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+    </div>
+    <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+  </md-toolbar>
   <div ng-controller="gigDetailCtrl" style='width:800px; margin-top:50px' style="background:white" layout='row'>
     <md-content class="md-padding" flex style="background:white">
       <md-tabs md-dynamic-height md-border-bottom style="background:white">
-        <md-tab label="gist" style="background:white" >
+        <md-tab label="gist" style="background:white">
           <md-content class="md-padding" style="background:white">
             <img ng-src={{gigInfo.imageUrl}} width="470" height="440">
             <h3>{{gigInfo.title}}</h3>
@@ -27,9 +29,28 @@
           </md-content>
         </md-tab>
       </md-tabs>
-        <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-controller="editGigCtrl" ng-show="user.username === gigInfo.addedBy.username">EDIT GIG</md-button>
-        <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG</md-button>
+      <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-controller="editGigCtrl" ng-show="user.username === gigInfo.addedBy.username">EDIT GIG</md-button>
+      <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG</md-button>
     </md-content>
-    <md-button style="background: green; border-radius:5px; display: inline; padding: 9px; height:90px; margin-top:13em; color:white; font-size:20px"><b>ORDER NOW (&#8358;1000)</b></md-button>
+    <!-- <md-button style="background: green; border-radius:5px; display: inline; padding: 9px; height:90px; margin-top:13em; color:white; font-size:20px"><b>ORDER NOW (&#8358;1000)</b></md-button> -->
+    <div style="margin-top:13em; color:white; font-size:20px">
+      <form method='POST' action='https://voguepay.com/pay/'>
+        <input type='hidden' name='v_merchant_id' value='1316-0029773' />
+        <input type='hidden' name='merchant_ref' value='234-567-890' />
+        <input type='hidden' name='memo' value='Order from Tango' />
+        <input type='hidden' name='item_1' value='{{gigInfo.title}}' />
+        <input type='hidden' name='description_1' value='{{gigInfo.description}}' />
+        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 100}}' />
+        <input type='hidden' name='store_id' value='25' />
+        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 100}}' />
+        <input type='hidden' name='notify_url' value='http:localhost:8000/api/payment/' />
+        <input type='hidden' name='success_url' value='http:localhost:8000/api/payment/success' />
+        <input type='hidden' name='fail_url' value='http:localhost:8000/api/payment/failled' />
+        <input type='image' ng-src='app/assets/img/order.png' alt='Submit' />
+        <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true">
+          <md-option ng-repeat="quantity in [1,2,3,4,5,6,7]" value="{{quantity}}">{{quantity}}</md-option>
+        </md-select>
+      </form>
+    </div>
   </div>
 </div>

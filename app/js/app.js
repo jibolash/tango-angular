@@ -1,24 +1,24 @@
 'use strict';
 
-angular.module("Tango",['ngMaterial','ngRoute','ui.router','ngFileUpload'])
-    .config(function($httpProvider, $mdThemingProvider){
+angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload'])
+  .config(function($httpProvider, $mdThemingProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
-     $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey')
-        .accentPalette('brown')
-        .backgroundPalette('light-green');
-    });
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue-grey')
+      .accentPalette('brown')
+      .backgroundPalette('light-green');
+  });
 
 angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
 
+  $rootScope.loggedIn = Auth.isLoggedIn();
+  $rootScope.$on('$stateChangeStart', function(event, next, current) {
     $rootScope.loggedIn = Auth.isLoggedIn();
-    $rootScope.$on('$stateChangeStart', function(event, next, current) {
-        $rootScope.loggedIn = Auth.isLoggedIn();
-        Auth.getUser().success(function(data) {
-            $rootScope.user = data;
-        });
+    Auth.getUser().success(function(data) {
+      $rootScope.user = data;
     });
+  });
 }]);
 
 angular.module("Tango")
@@ -56,5 +56,10 @@ angular.module("Tango")
                 url: '/user/profile/:username',
                 templateUrl: 'app/views/user.profile.html',
                 controller: "userProfileCtrl"
+            })
+            .state('pay', {
+                url: '/gig/pay/:gigid',
+                templateUrl: 'app/views/payment.html',
+                controller: "editGigCtrl"
             });
     });
