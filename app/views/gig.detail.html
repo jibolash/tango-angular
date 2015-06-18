@@ -16,7 +16,7 @@
             <img ng-src={{gigInfo.imageUrl}} width="470" height="440">
             <h3>{{gigInfo.title}}</h3>
             <h4>Categoy: {{gigInfo.category.name}}</h4>
-            <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer'>Added by: {{gigInfo.addedBy.username}}</p>
+            <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'>Added by: <span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span></p>
             <p>Duration: {{gigInfo.duration}} Days</p>
           </md-content>
         </md-tab>

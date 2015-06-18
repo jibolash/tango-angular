@@ -17,7 +17,6 @@ angular.module('Tango')
     };
 
     $scope.doAdd = function(gig){
-      var id = $window.localStorage.getItem('token');
 
       var localhost = "http://localhost:8000/api/gigs";
       var heroku = "https://tangong-api.herokuapp.com/api/gigs";

@@ -17,14 +17,14 @@
 
   <h3>{{userData.username + "'s" +" "+ "Gigs"}}</h3>
   <div  ng-repeat='userGig in userGigs' style="background:white;">
-      <md-card style="margin-left: 10px; width: 330px; float: left;">
+      <md-card style="margin-left: 10px; width: 330px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: userGig._id})">
           <img ng-src="{{userGig.imageUrl}}" width="235.516" height="220">
           <md-card-content style="background:white">
               <h2 class="md-title">{{userGig.title}}</h2>
              <p>{{(userGig.description).substring(0, 50) + '...'}}</p>
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="end center" style="background:white">
-              <md-button ui-sref="gigDetail({gigid: userGig._id})">View Details</md-button>
+              <md-button>View Details</md-button>
           </div>
       </md-card>
   </div>
