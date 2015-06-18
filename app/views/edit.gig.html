@@ -36,7 +36,7 @@
           <br>
           <label>How many days will this take you?</label>
           <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
-            <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}}</md-option>
+            <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}} {{duration===1 ? "day":"days"}}</md-option>
           </md-select>
 
           <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="saveChanges(gig._id, gig)" style="background: green; border-radius:5px; color:white">Save Changes</md-button>
