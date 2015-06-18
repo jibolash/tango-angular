@@ -24,7 +24,7 @@ angular.module('Tango')
     $scope.saveChanges = function(gigid, gigData) {
       var localhost = "http://localhost:8000/api/gig";
       var heroku = "https://tangong-api.herokuapp.com/api/gig";
-      var link = localhost;
+      var link = heroku;
       var gig = gigData;
       gig._id = gigid;
       gig.category = gig.category._id;
