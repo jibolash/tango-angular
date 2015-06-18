@@ -56,5 +56,10 @@ angular.module("Tango")
                 url: '/user/profile/:username',
                 templateUrl: 'app/views/user.profile.html',
                 controller: "userProfileCtrl"
+            })
+            .state('pay', {
+                url: '/gig/pay/:gigid',
+                templateUrl: 'app/views/payment.html',
+                controller: "editGigCtrl"
             });
     });
