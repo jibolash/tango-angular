@@ -4,6 +4,8 @@ angular.module('Tango')
   .controller('editGigCtrl', ['$rootScope', '$scope', 'gigService', '$location', '$stateParams', 'Upload', 'categoryService', '$mdToast', '$animate', function($rootScope, $scope, gigService, $location, $stateParams, Upload, categoryService, $mdToast, $animate) {
     gigService.oneGig($stateParams.gigid).success(function(data) {
       $scope.gig = data;
+      // console.log(data);
+
       data.newCategory = data.category;
     });
 
@@ -22,10 +24,11 @@ angular.module('Tango')
     $scope.saveChanges = function(gigid, gigData) {
       var localhost = "http://localhost:8000/api/gig";
       var heroku = "https://tangong-api.herokuapp.com/api/gig";
-      var link = heroku;
+      var link = localhost;
       var gig = gigData;
       gig._id = gigid;
-      console.log(2, gig);
+      gig.category = gig.category._id;
+      gig.addedBy = (gig.hasOwnProperty("addedBy")) ? gig.addedBy._id : "";
       link += "/" + gigid;
       var upload = Upload.upload({
           url: link,
