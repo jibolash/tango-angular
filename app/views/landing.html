@@ -32,7 +32,7 @@
 
       <div ng-controller="gigsCtrl">
         <div ng-repeat='gig in gigs | limitTo: 4' style="background:white; padding-left:2em">
-          <md-card style="margin-left: 10px; width: 320px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
+          <md-card style="margin-left: 10px; width: 310px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220" >
             <md-card-content style="background:white">
               <h2 class="md-title" >{{gig.title}}</h2>
