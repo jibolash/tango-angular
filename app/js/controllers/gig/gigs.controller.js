@@ -4,11 +4,15 @@ angular.module('Tango')
   .controller('gigsCtrl', ['$scope', 'gigService', 'categoryService', '$window', 'Upload', '$location', '$mdDialog', '$mdToast', '$stateParams', '$animate', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $stateParams, $animate) {
 
     if ($stateParams.hasOwnProperty("catid")) {
-      gigService.allGigs().success(function(data) {
-        // $rootScope.selectedCategory = $stateParams.catid;
-        $scope.gigs = data;
-      });
+      categoryService.getOne($stateParams.catid).success(function(catData) {
+        $scope.groupCategoryName = catData.name;
+        gigService.searchCategory($stateParams.catid).success(function(data) {
+          $scope.isempty = (data.length===0)? true:false;
+          $scope.gigs = data;
+        });
+      })
     } else {
+
       gigService.allGigs().success(function(data) {
         $scope.gigs = data;
       });

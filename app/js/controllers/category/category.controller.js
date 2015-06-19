@@ -12,6 +12,13 @@ app.controller("categoryController", ['categoryService', '$scope', '$stateParams
     $location.path("/gigs/category/" + cat_id);
   }
   $scope.selectedCategory = $stateParams.catid;
+  $rootScope.incategory = true;
   console.log($scope.selectedCategory);
+
+  $scope.catCheck = function(id,status){
+    console.log(1,$scope.cat);
+    console.log(2,$scope.neew);
+  }
   // $scope.setting.disabled = true;
+
 }])

@@ -31,8 +31,8 @@ app.factory('gigService', ['$http','baseUrl', 'Upload', function($http, baseUrl,
 
   };
 
-  gigFactory.searchCategory = function(categoryName){
-    return $http.get(baseUrl + '/gigs/search/category?category='+categoryName);
+  gigFactory.searchCategory = function(category){
+    return $http.get(baseUrl + '/gigs/search/category/'+category);
   };
 
   gigFactory.uploadImage =  function(image, method, url, gig){

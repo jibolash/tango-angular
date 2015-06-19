@@ -55,7 +55,7 @@ angular.module("Tango")
       .state('checkCategory', {
         url: '/gigs/category/:catid',
         templateUrl: 'app/views/category.view.html',
-        controller: "categoryController"
+        controller: "gigsCtrl"
       })
       .state('profile', {
         url: '/user/profile/:username',
