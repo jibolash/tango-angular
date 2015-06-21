@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', 'angular-loading-bar'])
+angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', 'angular-loading-bar', 'angularUtils.directives.dirDisqus'])
   .config(function($httpProvider, $mdThemingProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
@@ -22,7 +22,8 @@ angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootSc
 }]);
 
 angular.module("Tango")
-    .config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+    .config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $locationProvider) {
+        $locationProvider.hashPrefix('!');
         cfpLoadingBarProvider.includeSpinner = false;
         $urlRouterProvider.otherwise("/");
         $stateProvider
