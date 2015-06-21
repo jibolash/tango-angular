@@ -33,7 +33,7 @@ angular.module('Tango')
 
       gig.image = gig.image[0];
       var upload = Upload.upload({
-          url: localhost,
+          url: heroku,
           method: "POST",
           file: gig.image,
           fields: gig
@@ -86,4 +86,8 @@ angular.module('Tango')
         $scope.deleteGig(gigid);
       }, function() {});
     };
+
+    $scope.state_list = ['Abuja','Anambra','Enugu','Akwa Ibom','Adamawa','Abia','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers'];
+    $scope.city_list = ['Aba','Abakaliki','Abeokuta','Abuja','Akure','Asaba','Anambra','Atlanta','Awka','Bauchi','Benin City','Birnin Kebbi','Calabar','Dutse','Eket','Enugu','Gombe','Gusau','Ibadan','Ife','Ikeja','Ikot-Abasi','Ikot Ekpene','Ikoyi','Ilorin','Jalingo','Jimeta','Jos','Kaduna','Kano','Katsina','Karu','Kumariya','Lafia','Lagos','Lokoja','Maiduguri','Makurdi','Minna','Nsukka','Ogbomoso','Onitsha','Oron','Oshogbo','Owerri','Owo','Oyo','Port Harcourt','Potiskum','Sokoto','Suleja','Umuahia','Uyo','Warri','Wukari','Yenagoa','Yola','Zaria'
+];
   }]);

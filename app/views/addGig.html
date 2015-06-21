@@ -44,6 +44,15 @@
           <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
             <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}} {{duration===1 ? "day":"days"}}</md-option>
           </md-select>
+          <label>Mind telling us where you intend to deliver this service from?</label>
+          <div layout='row'>
+          <md-select placeholder="State" ng-model="gig.state" ng-required="false">
+            <md-option ng-repeat="state in state_list" value="{{state}}">{{state}}</md-option>
+          </md-select>
+          <md-select placeholder="City" ng-model="gig.city" ng-required="false" style='padding-left:30px'>
+            <md-option ng-repeat="city in city_list" value="{{city}}">{{city}}</md-option>
+          </md-select>
+          </div>
           <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)" style="background: green; border-radius:5px; color:white">Add</md-button>
         </form>
       </div>

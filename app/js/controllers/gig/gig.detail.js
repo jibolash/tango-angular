@@ -6,6 +6,7 @@ angular.module('Tango')
     gigService.oneGig($stateParams.gigid)
       .success(function(data) {
         $scope.gigInfo = data;
-        document.getElementById('twitterLink').setAttribute("data-text", $scope.gigInfo.title);
+        var twittermessage = data.title;
+        document.getElementById('twitterLink').setAttribute("data-text", twittermessage);
       });
   }]);
