@@ -33,7 +33,7 @@ angular.module('Tango')
 
       gig.image = gig.image[0];
       var upload = Upload.upload({
-          url: localhost,
+          url: heroku,
           method: "POST",
           file: gig.image,
           fields: gig
