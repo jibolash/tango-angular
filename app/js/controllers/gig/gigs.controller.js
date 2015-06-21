@@ -1,21 +1,31 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('gigsCtrl', ['$scope', 'gigService','categoryService','$window','Upload', '$location', '$mdDialog', '$mdToast', '$animate', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $animate){
+  .controller('gigsCtrl', ['$scope', 'gigService', 'categoryService', '$window', 'Upload', '$location', '$mdDialog', '$mdToast', '$stateParams', '$animate', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $stateParams, $animate) {
 
-    gigService.allGigs().success(function(data) {
-      $scope.gigs = data;
-    });
+    if ($stateParams.hasOwnProperty("catid")) {
+      categoryService.getOne($stateParams.catid).success(function(catData) {
+        $scope.groupCategoryName = catData.name;
+        gigService.searchCategory($stateParams.catid).success(function(data) {
+          $scope.isempty = (data.length===0)? true:false;
+          $scope.gigs = data;
+        });
+      })
+    } else {
+
+      gigService.allGigs().success(function(data) {
+        $scope.gigs = data;
+      });
+    }
+
 
     categoryService.getAll()
       .success(function(data) {
         $scope.categories = data;
       });
-
     $scope.postGig = function() {
       $location.path('/gigs/new');
     };
-
     $scope.doAdd = function(gig) {
       $scope.loadingBar = true;
       var localhost = "http://localhost:8000/api/gigs";
@@ -33,9 +43,7 @@ angular.module('Tango')
         });
     };
 
-    //its not even trivial, its done
-    $scope.showRecentGigs = function(){
-      $scope.loadingBar = false;
+    $scope.showRecentGigs = function() {
       $location.path('/gigs');
     };
 
@@ -59,7 +67,9 @@ angular.module('Tango')
 
     $scope.getToastPosition = function() {
       return Object.keys($scope.toastPosition)
-        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .filter(function(pos) {
+          return $scope.toastPosition[pos];
+        })
         .join(' ');
     };
 

@@ -15,20 +15,23 @@
     <div ng-controller="categoryController">
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <h1 class="md-toolbar-tools" layout='center center'>Categories</h1>
-        <md-list ng-repeat="category in categories" >
+        <md-list ng-repeat="category in categories">
           <md-list-item>
             <p ui-sref="checkCategory({catid: category._id})">
               <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}}
-            <md-switch class="md-secondary" ng-model="cat.stat" ng-init="neew"></md-switch></p>
+              <md-switch class="md-secondary" ng-model="true" ng-show="{{category._id===selectedCategory}}"></md-switch>
+              <md-switch class="md-secondary" ng-model="false" ng-hide="{{category._id===selectedCategory}}"></md-switch>
+            </p>
           </md-list-item>
         </md-list>
       </md-sidenav>
     </div>
     <div flex style='margin-left:20px'>
       <div>
-        <h2 style='margin-left: 20px; color:black' flex='40'>RECENTLY ADDED </h2>
+        <h2 style='margin-left: 20px; color:black' flex='40'>{{groupCategoryName}}</h2>
       </div>
       <div ng-controller="gigsCtrl">
+        <h4 style='margin-left: 40px; color:black' flex='40' ng-if="isempty">No gigs in this category</h4>
         <div ng-repeat='gig in gigs' style="background:white; padding-left:2em">
           <md-card style="margin-left: 10px; width: 320px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
