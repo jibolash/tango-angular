@@ -11,7 +11,7 @@ angular.module('Tango')
     categoryService.getAll()
       .success(function(data) {
         $scope.categories = data;
-      })
+      });
 
     $scope.checkCategory = function() {
       if ($scope.category._id === $rootScope.newCategory._id) {

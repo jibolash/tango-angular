@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload'])
+angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', 'djds4rce.angular-socialshare'])
   .config(function($httpProvider, $mdThemingProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
@@ -61,5 +61,10 @@ angular.module("Tango")
                 url: '/gig/pay/:gigid',
                 templateUrl: 'app/views/payment.html',
                 controller: "editGigCtrl"
+            })
+            .state('editProfile', {
+                url: "/user/edit/:userid",
+                templateUrl: "app/views/edit.user.html",
+                controller: "editUserCtrl"
             });
     });
