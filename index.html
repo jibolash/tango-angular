@@ -2,49 +2,43 @@
 <html ng-app="Tango">
 
 <head>
-<link rel="canonical"
-  href="https://dev.twitter.com/web/tweet-button">
-    <script >window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-    <title>Tango</title>
-    <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-loading-bar/src/loading-bar.css">
-    <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-material/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="app/assets/style.css">
-    <style type="text/css">
-    </style>
-
+  <link rel="canonical" href="https://dev.twitter.com/web/tweet-button">
+  <script>
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
+  </script>
+  <title>Tango</title>
+  <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-loading-bar/src/loading-bar.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/style.css">
+  <style type="text/css">
+  </style>
 </head>
 
 <body>
-
-  <div ui-view ></div>
-
-	<script src="app/assets/bower_components/angular/angular.min.js"></script>
+  <div ui-view></div>
+  <script src="app/assets/bower_components/angular/angular.min.js"></script>
   <script src="app/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<script src="app/assets/bower_components/angular-route/angular-route.min.js"></script>
-	<script src="app/assets/bower_components/angular-animate/angular-animate.min.js"></script>
-	<script src="app/assets/bower_components/angular-aria/angular-aria.min.js"></script>
-	<script src="app/assets/bower_components/angular-material/angular-material.js"></script>
-
+  <script src="app/assets/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="app/assets/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="app/assets/bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="app/assets/bower_components/angular-material/angular-material.js"></script>
   <script src="app/assets/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
   <script src="app/assets/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
   <script src="app/assets/bower_components/angular-socialshare/angular-socialshare.min.js"></script>
-
-
-	<script src="app/js/app.js"></script>
-
+  <script src="app/js/app.js"></script>
   <!-- controllers -->
   <script src="app/js/services/baseUrl.service.js"></script>
   <script src="app/js/services/auth.service.js"></script>
@@ -61,7 +55,6 @@
   <script src="app/js/controllers/user/edit.user.js"></script>
   <script src="app/assets/bower_components/angular-loading-bar/src/loading-bar.js"></script>
   <script src="app/assets/bower_components/angular-utils-disqus/dirDisqus.js"></script>
-
-
 </body>
+
 </html>
