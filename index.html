@@ -29,6 +29,10 @@
 
 <body>
   <div ui-view></div>
+  <div class="footer">
+    <center><span>Built by <a href="http://github.com/andela-asogbein">Jibola</a> and <a href="http://github.com/andela-ssunday">Stephen</a> at <a href="http://twitter.com/andela">Andela</a>
+    </center>
+  </div>
   <script src="app/assets/bower_components/angular/angular.min.js"></script>
   <script src="app/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="app/assets/bower_components/angular-route/angular-route.min.js"></script>
@@ -37,9 +41,11 @@
   <script src="app/assets/bower_components/angular-material/angular-material.js"></script>
   <script src="app/assets/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
   <script src="app/assets/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
-  <script src="app/assets/bower_components/angular-socialshare/angular-socialshare.min.js"></script>
+  <script src="app/assets/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <script src="app/js/app.js"></script>
   <!-- controllers -->
+  <script src="app/js/directives/googleMap.js"></script>
   <script src="app/js/services/baseUrl.service.js"></script>
   <script src="app/js/services/auth.service.js"></script>
   <script src="app/js/services/user.service.js"></script>

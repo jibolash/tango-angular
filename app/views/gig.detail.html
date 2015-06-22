@@ -10,8 +10,8 @@
     <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
     <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
-  <div ng-controller="gigDetailCtrl" style='width:800px; margin-top:50px' style="background:white" layout='row'>
-    <md-content class="md-padding" flex style="background:white">
+  <div ng-controller="gigDetailCtrl" style='width:1300px; margin-top:50px' style="background:white" layout='row'>
+    <md-content class="md-padding" flex='150' style="background:white">
       <md-tabs md-dynamic-height md-border-bottom style="background:white">
         <md-tab label="gist" style="background:white">
           <md-content class="md-padding" style="background:white">
@@ -33,8 +33,10 @@
       <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG</md-button>
       <dir-disqus disqus-shortname="tangong" disqus-identifier="{{ gigid }}" disqus-url="{{ url }}">
       </dir-disqus>
+      <!-- <p>{{gigInfo.addedBy.username}} is based in {{gigInfo.address}}</p>
+      <div address-based-google-map address="Address" zoom="16"></div>
+      <div area-based-google-map area="Area" zoom="8"></div> -->
     </md-content>
-    <!-- <md-button style="background: green; border-radius:5px; display: inline; padding: 9px; height:90px; margin-top:13em; color:white; font-size:20px"><b>ORDER NOW (&#8358;1000)</b></md-button> -->
     <div style="margin-top:13em; color:white; font-size:20px">
       <form method='POST' action='https://voguepay.com/pay/'>
         <input type='hidden' name='v_merchant_id' value='1316-0029773' />
@@ -56,6 +58,11 @@
       <a class="twitter-share-button" id="twitterLink" href="https://twitter.com/share" data-size="large" data-url="" data-count-url="" data-via="tangoNG" data-related="tangoNG" data-hashtags="Andela, TangoNG" data-text="">
           Tweet
         </a>
+    </div>
+    <div style="margin-top:50px;">
+      <div style='padding-left:50px'> <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p></div>
+      <div address-based-google-map address="Address" zoom="16"></div>
+      <div area-based-google-map area="Area" zoom="8"></div>
     </div>
   </div>
 </div>

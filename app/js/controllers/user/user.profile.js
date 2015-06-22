@@ -1,16 +1,20 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('userProfileCtrl', ['$scope', '$location', '$stateParams', 'userService', function($scope, $location, $stateParams, userService){
+  .controller('userProfileCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', function($scope, $location, $stateParams, userService, $mdBottomSheet){
 
     userService.getByUsername($stateParams.username).success(function(data){
       $scope.userData = data;
     });
 
     userService.userGigs($stateParams.username).success(function(data){
-
         $scope.userGigs = data;
       });
+
+    $mdBottomSheet.hide({
+      });
+
+
 
     // $scope.deleteUser = function(userid){
     //   userService.deleteUser(userid).success(function(data){

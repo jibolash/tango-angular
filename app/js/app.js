@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', 'angular-loading-bar', 'angularUtils.directives.dirDisqus'])
+angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', 'angular-loading-bar', 'angularUtils.directives.dirDisqus', 'ngMap'])
   .config(function($httpProvider, $mdThemingProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 
     $mdThemingProvider.theme('default')
       .primaryPalette('blue-grey')
-      .accentPalette('brown')
-      .backgroundPalette('light-green');
+      .accentPalette('light-green')
+      .backgroundPalette('grey');
   });
 
 angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
