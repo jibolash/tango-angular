@@ -41,7 +41,7 @@
       <form method='POST' action='https://voguepay.com/pay/'>
         <input type='hidden' name='v_merchant_id' value='1316-0029773' />
         <!-- 1316-0029773 -->
-        <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{user.email}}" />
+        <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{gigInfo.addedBy.email}}" />
         <input type='hidden' name='memo' value='Order from Tango' />
         <input type='hidden' name='item_1' value='{{gigInfo.title}}' />
         <input type='hidden' name='description_1' value='{{gigInfo.description}}' />
