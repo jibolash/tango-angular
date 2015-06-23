@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('connectionCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', 'connectionService', '$rootScope', function($scope, $location, $stateParams, userService, $mdBottomSheet, connectionService, $rootScope) {
+  .controller('connectionCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', 'connectionService', '$rootScope', 'Auth', function($scope, $location, $stateParams, userService, $mdBottomSheet, connectionService, $rootScope, Auth) {
 
-    userService.getByUsername($rootScope.user.username).success(function(data) {
+    Auth.getUser().success(function(data) {
       $rootScope.userData = data;
+      connectionService.get($rootScope.userData.id).success(function(data) {
+        $rootScope.connections = data;
+      })
     });
-    connectionService.get($rootScope.user.id).success(function(data) {
-      $rootScope.connections = data;
-    })
+    // userService.getByUsername($rootScope.user.username).success(function(data) {
+    //   $rootScope.userData = data;
+    // });
+
 
 
     $mdBottomSheet.hide({});
