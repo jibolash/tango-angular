@@ -7,7 +7,6 @@ angular.module('Tango')
       $rootScope.userData = data;
     });
     connectionService.getByConnection($stateParams.message_id).success(function(data) {
-      console.log(data);
       $rootScope.connection = data;
     })
 
@@ -21,6 +20,7 @@ angular.module('Tango')
     ref.on("child_added", function(snapshot){
       $scope.messages.push(snapshot.val());
       console.log($scope.messages);
+      $scope.$apply();
     })
 
     $scope.add = function(text){
