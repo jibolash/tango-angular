@@ -44,12 +44,12 @@
           <md-select placeholder="Duration" ng-model="gig.duration" ng-required="true">
             <md-option ng-repeat="duration in [1,2,3,4,5,6,7]" value="{{duration}}">{{duration}} {{duration===1 ? "day":"days"}}</md-option>
           </md-select>
-          <label>Mind telling us where you intend to offer this service from?</label>
+          <label>Mind telling us where you intend to offer this service from? This is not compulsory, it's a free world...</label>
           <div layout='row'>
           <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
             <label>Address</label>
             <div style='padding-top:1em'>
-              <textarea ng-model="gig.address" ng-required="true" style='width:40em'></textarea>
+              <textarea ng-model="gig.address" ng-required="false" style='width:40em'></textarea>
             </div>
           </md-input-container>
           </div>

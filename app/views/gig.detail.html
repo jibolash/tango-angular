@@ -59,7 +59,7 @@
           Tweet
         </a>
     </div>
-    <div style="margin-top:50px;">
+    <div style="margin-top:50px;" ng-if='showMap'>
       <div style='padding-left:50px'> <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p></div>
       <div address-based-google-map address="Address" zoom="16"></div>
       <div area-based-google-map area="Area" zoom="8"></div>
