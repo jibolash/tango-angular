@@ -1,18 +1,22 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('messageCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', 'connectionService', '$rootScope', function($scope, $location, $stateParams, userService, $mdBottomSheet, connectionService, $rootScope) {
+  .controller('messageCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', 'connectionService', '$rootScope','Auth', function($scope, $location, $stateParams, userService, $mdBottomSheet, connectionService, $rootScope,Auth) {
 
-    userService.getByUsername($rootScope.user.username).success(function(data) {
+    if($rootScope.hasOwnProperty("user")){
+      $stateParams.user = $rootScope.user;
+    }
+
+    userService.getByUsername($stateParams.user.username).success(function(data) {
       $rootScope.userData = data;
     });
-    connectionService.getByConnection($stateParams.message_id).success(function(data) {
+    connectionService.getByConnection($rootScope.message_id).success(function(data) {
       $rootScope.connection = data;
     })
 
-    // console.log($stateParams.messageCtrl)
+    // console.log($rootScope.messageCtrl)
     if ($stateParams.hasOwnProperty("message_id")) {
-      var ref = new Firebase("https://tangong.firebaseio.com/messages/"+$stateParams.message_id);
+      var ref = new Firebase("https://tangong.firebaseio.com/messages/"+$rootScope.message_id);
       // ref.child($stateParams.message_id);
 
     }
