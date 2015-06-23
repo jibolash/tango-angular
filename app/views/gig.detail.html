@@ -30,7 +30,7 @@
         </md-tab>
       </md-tabs>
       <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-controller="editGigCtrl" ng-show="user.username === gigInfo.addedBy.username">EDIT GIG</md-button>
-      <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG</md-button>
+      <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG {{user.email}}</md-button>
       <dir-disqus disqus-shortname="tangong" disqus-identifier="{{ gigid }}" disqus-url="{{ url }}">
       </dir-disqus>
       <!-- <p>{{gigInfo.addedBy.username}} is based in {{gigInfo.address}}</p>
@@ -40,15 +40,16 @@
     <div style="margin-top:13em; color:white; font-size:20px">
       <form method='POST' action='https://voguepay.com/pay/'>
         <input type='hidden' name='v_merchant_id' value='1316-0029773' />
-        <input type='hidden' name='merchant_ref' value='234-567-890' />
+        <!-- 1316-0029773 -->
+        <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{gigInfo.addedBy.email}}" />
         <input type='hidden' name='memo' value='Order from Tango' />
         <input type='hidden' name='item_1' value='{{gigInfo.title}}' />
         <input type='hidden' name='description_1' value='{{gigInfo.description}}' />
-        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 100}}' />
+        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
         <input type='hidden' name='store_id' value='25' />
-        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 100}}' />
-        <input type='hidden' name='notify_url' value='http:localhost:8000/api/payment/' />
-        <input type='hidden' name='success_url' value='http://andela-ssunday.github.io/tangong' />
+        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
+        <input type='hidden' name='notify_url' value='https://tangong-api.herokuapp.com/api/payment/' />
+        <input type='hidden' name='success_url' value='https://tangong-api.herokuapp.com/api/payment/' />
         <input type='hidden' name='fail_url' value='http://andela-ssunday.github.io/tangong' />
         <input type='image' ng-src='app/assets/img/order.png' alt='Submit' />
         <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true">
