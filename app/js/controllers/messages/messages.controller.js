@@ -10,13 +10,13 @@ angular.module('Tango')
     userService.getByUsername($stateParams.user.username).success(function(data) {
       $rootScope.userData = data;
     });
-    connectionService.getByConnection($rootScope.message_id).success(function(data) {
-      $rootScope.connection = data;
+    connectionService.getByConnection($stateParams.message_id).success(function(data) {
+      $stateParams.connection = data;
     })
 
-    // console.log($rootScope.messageCtrl)
+    // console.log($stateParams.messageCtrl)
     if ($stateParams.hasOwnProperty("message_id")) {
-      var ref = new Firebase("https://tangong.firebaseio.com/messages/"+$rootScope.message_id);
+      var ref = new Firebase("https://tangong.firebaseio.com/messages/"+$stateParams.message_id);
       // ref.child($stateParams.message_id);
 
     }
