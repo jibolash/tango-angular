@@ -69,6 +69,11 @@ angular.module("Tango")
         templateUrl: 'app/views/category.view.html',
         controller: "categoryController"
       })
+      .state('connections', {
+        url: '/connections',
+        templateUrl: 'app/views/connection.view.html',
+        controller: "connectionCtrl"
+      })
       .state('editProfile', {
         url: "/user/edit/:userid",
         templateUrl: "app/views/edit.user.html",

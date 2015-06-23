@@ -15,6 +15,7 @@
   <md-button style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username' >EDIT PROFILE</md-button>
 <!--   ui-sref="editProfile({userid: userData._id})" -->
   <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
+  <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
 
   <h3>{{userData.username + "'s" +" "+ "Gigs"}}</h3>
   <div  ng-repeat='userGig in userGigs' style="background:white;">
