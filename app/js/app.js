@@ -74,6 +74,11 @@ angular.module("Tango")
         templateUrl: 'app/views/connection.view.html',
         controller: "connectionCtrl"
       })
+      .state('messaging', {
+        url: '/messages/:message_id',
+        templateUrl: 'app/views/messages.view.html',
+        controller: "messageCtrl"
+      })
       .state('editProfile', {
         url: "/user/edit/:userid",
         templateUrl: "app/views/edit.user.html",

@@ -45,9 +45,9 @@
         <input type='hidden' name='memo' value='Order from Tango' />
         <input type='hidden' name='item_1' value='{{gigInfo.title}}' />
         <input type='hidden' name='description_1' value='{{gigInfo.description}}' />
-        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
+        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 1000}}' />
         <input type='hidden' name='store_id' value='25' />
-        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
+        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 1000}}' />
         <input type='hidden' name='notify_url' value='https://tangong-api.herokuapp.com/api/payment/' />
         <input type='hidden' name='success_url' value='https://tangong-api.herokuapp.com/api/payment/' />
         <input type='hidden' name='fail_url' value='http://andela-ssunday.github.io/tangong' />
