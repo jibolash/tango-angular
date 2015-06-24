@@ -14,22 +14,22 @@
     <p>{{userData.username}}</p>
     <h3>Email</h3>
     <p>{{userData.email}}</p>
-    <md-button style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
-    <!--   ui-sref="editProfile({userid: userData._id})" -->
-    <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
     <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/user/profile/{{user.username}}">VIEW GIGS</md-button>
-    <h3>{{userData.username + "'s" +" "+ "Connections"}}</h3>
+    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
+    <h3>Messages with {{connection.provider.username}}</h3>
     <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
     <md-content>
       <md-list>
-        <md-list-item ng-repeat="conn in connections" ng-click="messaging(conn._id)" style="background:gainsboro;">
-          <p><span class="md-title">{{(conn.provider.username===user.username) ? conn.requester.username : conn.provider.username }}</span> &nbsp;&nbsp;({{conn.gig.title}})</p>
-          <md-icon md-svg-src="/app/assets/img/chat2.svg" ng-click="messaging(conn._id)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class=""></md-icon>
-          <!-- ng-class="{'md-primary': person.newMessage}" -->
-          <md-divider></md-divider>
+        <md-list-item class="md-3-line" ng-repeat="msg in messages" style="background:gainsboro">
+          <p><span class="md-title">{{msg.user}}</span> : {{msg.text}}</p>
         </md-list-item>
       </md-list>
     </md-content>
+    <md-input-container>
+      <input type="text" ng-model="message" ng-keydown="($event.keyCode===13) ? (message = add(message) ? '' : '') : false" ng-init="message = ''"/>
+    </md-input-container>
+    <md-button style="background: green; border-radius:5px;" ng-click="add(message); message=''">SEND</md-button>
   </div>
   <!-- </div> -->
+
 </div>
