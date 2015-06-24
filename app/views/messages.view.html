@@ -20,13 +20,16 @@
     <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
     <md-content>
       <md-list>
-        <md-list-item class="md-3-line" ng-repeat="msg in messages">
-          {{msg.user}} : {{msg.text}}
+        <md-list-item class="md-3-line" ng-repeat="msg in messages" style="background:gainsboro">
+          <p><span class="md-title">{{msg.user}}</span> : {{msg.text}}</p>
         </md-list-item>
       </md-list>
     </md-content>
-    <input type="text" ng-model="text" />
-    <md-button style="background: green; border-radius:5px;" ng-click="add(text)">SEND</md-button>
+    <md-input-container>
+      <input type="text" ng-model="message" ng-keydown="($event.keyCode===13) ? (message = add(message) ? '' : '') : false" ng-init="message = ''"/>
+    </md-input-container>
+    <md-button style="background: green; border-radius:5px;" ng-click="add(message); message=''">SEND</md-button>
   </div>
   <!-- </div> -->
+
 </div>

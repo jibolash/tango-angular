@@ -3,9 +3,11 @@
 angular.module('Tango')
   .controller('messageCtrl', ['$scope', '$location', '$stateParams', 'userService', '$mdBottomSheet', 'connectionService', '$rootScope', 'Auth', function($scope, $location, $stateParams, userService, $mdBottomSheet, connectionService, $rootScope, Auth) {
 
+
+    Auth.checkLogin();
+
     Auth.getUser().success(function(data) {
       $rootScope.userData = data;
-
     })
 
     connectionService.getByConnection($stateParams.message_id).success(function(data) {
@@ -23,11 +25,12 @@ angular.module('Tango')
     })
 
     $scope.add = function(text) {
-      ref.push({
-        user: $rootScope.user.username,
-        text: text
-      });
-      $scope.text = " ";
+      if (text.length > 0) {
+        ref.push({
+          user: $rootScope.user.username,
+          text: text
+        });
+      }
     }
 
 

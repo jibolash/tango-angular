@@ -3,7 +3,7 @@
 var app = angular.module('Tango');
 
 //heroku
-app.factory('Auth', ['$http', '$q', 'AuthToken','baseUrl', function($http, $q, AuthToken, baseUrl){
+app.factory('Auth', ['$http', '$q', 'AuthToken','baseUrl','$location', function($http, $q, AuthToken, baseUrl,$location){
 
     var authFactory = {};
 
@@ -33,6 +33,12 @@ app.factory('Auth', ['$http', '$q', 'AuthToken','baseUrl', function($http, $q, A
         return false;
       }
     };
+
+    authFactory.checkLogin = function(){
+      if(!this.isLoggedIn()){
+        $location.path("/");
+      }
+    }
 
     authFactory.getUser = function(){
       if(AuthToken.getToken()){

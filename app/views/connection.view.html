@@ -22,8 +22,11 @@
     <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
     <md-content>
       <md-list>
-        <md-list-item class="md-3-line" ng-repeat="conn in connections" ng-click="messaging(conn._id)">
-          {{(conn.provider.username===user.username) ? conn.requester.username : conn.provider.username }}
+        <md-list-item ng-repeat="conn in connections" ng-click="messaging(conn._id)" style="background:gainsboro;">
+          <p><span class="md-title">{{(conn.provider.username===user.username) ? conn.requester.username : conn.provider.username }}</span> &nbsp;&nbsp;({{conn.gig.title}})</p>
+          <md-icon md-svg-src="/app/assets/img/chat2.svg" ng-click="messaging(conn._id)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class=""></md-icon>
+          <!-- ng-class="{'md-primary': person.newMessage}" -->
+          <md-divider></md-divider>
         </md-list-item>
       </md-list>
     </md-content>
