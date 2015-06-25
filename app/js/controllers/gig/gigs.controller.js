@@ -27,9 +27,7 @@ angular.module('Tango')
       $location.path('/gigs/new');
     };
     $scope.doAdd = function(gig) {
-      console.log(1,'2');
-      $scope.loadingBar = true;
-      var localhost = "http://localhost:8080/api/gigs";
+      var localhost = "http://localhost:8000/api/gigs";
       var heroku = "https://tangong-api.herokuapp.com/api/gigs";
 
       gig.image = gig.image[0];

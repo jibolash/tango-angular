@@ -83,6 +83,15 @@ angular.module("Tango")
         url: "/user/edit/:userid",
         templateUrl: "app/views/edit.user.html",
         controller: "editUserCtrl"
+      })
+      .state('newPassword', {
+        url: "/new/password",
+        templateUrl: "app/views/new.password.html",
+        controller: "newPasswordCtrl"
+      })
+      .state('resetPassword', {
+        url: "/reset/password/:randomToken",
+        templateUrl: "app/views/reset.password.html",
+        controller: "resetPasswordCtrl"
       });
-
   });

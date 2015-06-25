@@ -13,7 +13,6 @@ app.controller("categoryController", ['categoryService', '$scope', '$stateParams
   }
   $scope.selectedCategory = $stateParams.catid;
   $rootScope.incategory = true;
-  console.log($scope.selectedCategory);
 
   $scope.catCheck = function(id,status){
     console.log(1,$scope.cat);
