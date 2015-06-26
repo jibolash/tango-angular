@@ -10,6 +10,7 @@
     <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
     <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
+
   <div ng-controller="gigDetailCtrl" style='width:1300px; margin-top:50px' style="background:white" layout='row'>
     <md-content class="md-padding" flex='150' style="background:white">
       <md-tabs md-dynamic-height md-border-bottom style="background:white">
@@ -61,7 +62,9 @@
         </a>
     </div>
     <div style="margin-top:50px;" ng-if='showMap'>
-      <div style='padding-left:50px'> <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p></div>
+      <div style='padding-left:50px'>
+        <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p>
+      </div>
       <div address-based-google-map address="Address" zoom="16"></div>
       <div area-based-google-map area="Area" zoom="8"></div>
     </div>
