@@ -45,9 +45,15 @@ angular.module("Tango")
         controller: "helpCtlr"
       })
       .state('gigs', {
-        url: "/gigs",
-        templateUrl: "app/views/gigs.view.html",
-        controller: "gigsCtrl"
+        url:"/gigs",
+        views: {
+          '' :{
+            templateUrl: "app/views/gigs.view.html",
+          },
+          'views@gigs' : {
+            templateUrl: "app/views/allGigs.html"
+          }
+        }
       })
       .state('editGig', {
         url: '/gig/edit/:gigid',
@@ -65,9 +71,15 @@ angular.module("Tango")
         controller: "editGigCtrl"
       })
       .state('checkCategory', {
+        parent:'gigs',
         url: '/gigs/category/:catid',
-        templateUrl: 'app/views/category.view.html',
+        templateUrl: 'app/views/categoryView.html',
         controller: "categoryController"
+      })
+      .state('gigs.default', {
+        url: '/all',
+        templateUrl: 'app/views/allGigs.html',
+        // controller: "gigsCtrl"
       })
       .state('connections', {
         url: '/connections',

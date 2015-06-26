@@ -12,37 +12,19 @@
   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:89em">
   </div>
   <div layout="row">
-    <div ng-controller="categoryController">
+    <div ng-controller="categoryController" ng-init="loadDefault()">
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <h1 class="md-toolbar-tools" layout='center center'>Categories</h1>
-        <md-list ng-repeat="category in categories" >
+        <md-list ng-repeat="category in categories">
           <md-list-item>
             <p ui-sref="checkCategory({catid: category._id})">
               <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}}
-            <md-switch class="md-secondary" ng-model="cat.stat" ng-init="neew"></md-switch></p>
+              <md-switch class="md-secondary" ng-model="category._id===selectedCategory" aria-label="s1"></md-switch>
+            </p>
           </md-list-item>
         </md-list>
       </md-sidenav>
     </div>
-    <div flex style='margin-left:20px'>
-      <div>
-        <h2 style='margin-left: 20px; color:black' flex='40'>RECENTLY ADDED </h2>
-      </div>
-      <div ng-controller="gigsCtrl">
-        <div ng-repeat='gig in gigs' style="background:white; padding-left:2em">
-          <md-card style="margin-left: 10px; width: 320px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
-            <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
-            <md-card-content style="background:white">
-              <h2 class="md-title">{{gig.title}}</h2>
-              <p>{{(gig.description).substring(0, 50) + '...'}}</p>
-            </md-card-content>
-            <div class="md-actions" layout="row" layout-align="end center" style="background:white">
-              <md-button>View Details</md-button>
-            </div>
-          </md-card>
-        </div>
-      </div>
-    </div>
+    <div flex ui-view></div>
   </div>
-</div>
 </div>

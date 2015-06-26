@@ -57,6 +57,8 @@ angular.module('Tango')
       });
     };
 
+
+
     $scope.toastPosition = {
       bottom: true,
       top: false,

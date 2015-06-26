@@ -5,7 +5,6 @@ angular.module('Tango')
 
 
     Auth.checkLogin();
-
     Auth.getUser().success(function(data) {
       $rootScope.userData = data;
     })
@@ -20,6 +19,7 @@ angular.module('Tango')
     $scope.messages = [];
     ref.on("child_added", function(snapshot) {
       $scope.messages.push(snapshot.val());
+      $scope.showNotif = ($scope.messages.length>0) ? false : true;
       console.log($scope.messages);
       $scope.$apply();
     })
