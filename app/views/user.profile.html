@@ -12,7 +12,7 @@
   <p>{{userData.username}}</p>
   <h3>Email</h3>
   <p>{{userData.email}}</p>
-  <md-button style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username' >EDIT PROFILE</md-button>
+  <md-button ui-sref="editProfile({userid: userData._id})" style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username' >EDIT PROFILE</md-button>
 <!--   ui-sref="editProfile({userid: userData._id})" -->
  <md-button ng-click="showConfirmDelete($ev, userData._id)" style="background: red; border-radius:5px;" ng-controller="userProfileCtrl" ng-show="user.username === userData.username">DELETE MY ACCOUNT</md-button>
   <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
