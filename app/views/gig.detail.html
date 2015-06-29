@@ -26,7 +26,7 @@
         <md-tab label="description">
           <md-content class="md-padding" style="background:white">
             <h1 class="md-display-2">Gig Description</h1>
-            <div>{{gigInfo.description}}</div>
+            <div><p class="md-body-1">{{gigInfo.description}}</p></div>
           </md-content>
         </md-tab>
       </md-tabs>
@@ -47,6 +47,7 @@
        <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true">
           <md-option ng-repeat="quantity in [1,2,3,4,5,6,7]" value="{{quantity}}">{{quantity}}</md-option>
         </md-select>
+       <!-- <span> {{(quantity) ? (quantity*1000) : 1000}}</span> -->
         <input type='hidden' name='v_merchant_id' value='1316-0029773' />
         <!-- 1316-0029773 -->
         <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{gigInfo.addedBy.email}}" />

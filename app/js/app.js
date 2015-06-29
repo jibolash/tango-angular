@@ -29,7 +29,8 @@ angular.module("Tango")
     $stateProvider
       .state('home', {
         url: "/",
-        templateUrl: "app/views/landing.html"
+        templateUrl: "app/views/landing.html",
+        controller: "searchCtrl"
       })
       .state('add', {
         url: "/gigs/new",
@@ -45,12 +46,12 @@ angular.module("Tango")
         controller: "helpCtlr"
       })
       .state('gigs', {
-        url:"/gigs",
+        url: "/gigs",
         views: {
-          '' :{
+          '': {
             templateUrl: "app/views/gigs.view.html",
           },
-          'views@gigs' : {
+          'views@gigs': {
             templateUrl: "app/views/allGigs.html"
           }
         }
@@ -71,7 +72,7 @@ angular.module("Tango")
         controller: "editGigCtrl"
       })
       .state('checkCategory', {
-        parent:'gigs',
+        parent: 'gigs',
         url: '/gigs/category/:catid',
         templateUrl: 'app/views/categoryView.html',
         controller: "categoryController"
@@ -79,6 +80,11 @@ angular.module("Tango")
       .state('gigs.default', {
         url: '/all',
         templateUrl: 'app/views/allGigs.html',
+        // controller: "gigsCtrl"
+      })
+      .state('search', {
+        url: '/search/:gigName',
+        templateUrl: 'app/views/search.html',
         // controller: "gigsCtrl"
       })
       .state('connections', {
