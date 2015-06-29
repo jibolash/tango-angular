@@ -24,15 +24,24 @@
   <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-material/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="app/assets/style.css">
   <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-  <style type="text/css">
+  <style>
+  .btnlnk:hover {
+    background-color: white !important;
+  }
+
+  md-switch.md-default-theme.md-checked .md-thumb {
+    background-color: rgb(75, 174, 78);
+  }
+
+  md-switch.md-default-theme.md-checked .md-bar {
+    background-color: rgba(75, 174, 78, .5);
+  }
   </style>
 </head>
 
 <body>
   <div ui-view></div>
-<!--   <div layout="row" style='padding-left: 1em; background:#4bae4e; position:absolute; bottom:0;'>
-    <p style='margin-left:35%; padding:2px;color:white'>Designed by <a href='https://twitter.com/j1bola' style='text-decoration:none; color:black'>Jibola</a> and <a href='https://twitter.com/neddinn' style='text-decoration:none; color:black'>Stephen</a> at <a href='https://twitter.com/andela' style='text-decoration:none; color:black'>Andela</a></p>
-  </div> -->
+
   <script src="app/assets/bower_components/angular/angular.min.js"></script>
   <script src="app/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="app/assets/bower_components/angular-route/angular-route.min.js"></script>

@@ -42,7 +42,6 @@ angular.module('Tango')
             .targetEvent(ev)
           );
       }
-
     };
     $scope.doAdd = function(gig) {
       var localhost = "http://localhost:8000/api/gigs";

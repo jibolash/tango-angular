@@ -3,11 +3,10 @@
     <div class="md-toolbar-tools" layout-align-gt-sm="left">
       <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
     </div>
-    <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
-    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-    <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
-    <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
   <div style='margin-left: 20em; width: 50em' ng-controller='connectionCtrl'>
     <h3>Username</h3>
@@ -18,7 +17,7 @@
     <!--   ui-sref="editProfile({userid: userData._id})" -->
     <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
     <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/user/profile/{{user.username}}">VIEW GIGS</md-button>
-    <h3>{{userData.username + "'s" +" "+ "Connections"}}</h3>
+    <h3>{{connections.length>0 ? (userData.username + "'s" +" "+ "Connections") : 'No connections available'}}</h3>
     <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
     <md-content>
       <md-list>

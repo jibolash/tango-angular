@@ -1,15 +1,17 @@
 <div>
-  <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
+  <md-toolbar layout="row" style="background:white; position:fixed; top:0px; width: 100%">
     <div class="md-toolbar-tools" layout-align-gt-sm="left">
       <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
     </div>
-    <md-button flex='5' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
-    <md-button flex='10' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-    <md-button flex='5' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-    <md-button flex='5' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
-    <md-button flex='10' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
 
-    <md-button flex='10' ng-click="postGig($event)" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <!-- <div layout="row" layout-align="right" style="width:70%"> -->
+      <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
+      <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+      <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+      <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <!-- </div> -->
   </md-toolbar>
   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:39em; width:100%">
     <div flex>
@@ -22,24 +24,21 @@
       <hr style='width: 50em'>
     </div>
   </div>
-
   <div layout="row" style='padding-left: 1em'>
     <div flex>
-
       <div layout="row">
         <h2 style='margin-left: 20px; color:black' flex='60'>RECENTLY ADDED GIGS</h2>
       </div>
-
       <div ng-controller="gigsCtrl">
         <div ng-repeat='gig in gigs | limitTo: 4' style="background:white; padding-left:2em">
           <md-card style="margin-left: 10px; width: 310px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
-            <img ng-src="{{gig.imageUrl}}" width="235.516" height="220" >
+            <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
             <md-card-content style="background:white">
-              <h2 class="md-title" >{{gig.title}}</h2>
+              <h2 class="md-title">{{gig.title}}</h2>
               <p>{{(gig.description).substring(0, 50) + '...'}}</p>
             </md-card-content>
             <div class="md-actions" layout="row" layout-align="end center" style="background:white">
-              <md-button >View Details</md-button>
+              <md-button>View Details</md-button>
             </div>
           </md-card>
         </div>
