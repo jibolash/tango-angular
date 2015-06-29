@@ -4,12 +4,12 @@
       <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
     </div>
     <!-- <div layout="row" layout-align="right" style="width:70%"> -->
-      <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
-      <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-      <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-      <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
-      <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-      <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+    <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
     <!-- </div> -->
   </md-toolbar>
   <div ng-controller="gigDetailCtrl" style='width:800px; margin-top:50px; margin-left:25%' layout='row'>
@@ -26,7 +26,9 @@
         <md-tab label="description">
           <md-content class="md-padding" style="background:white">
             <h1 class="md-display-2">Gig Description</h1>
-            <div><p class="md-body-1">{{gigInfo.description}}</p></div>
+            <div>
+              <p class="md-body-1">{{gigInfo.description}}</p>
+            </div>
           </md-content>
         </md-tab>
       </md-tabs>
@@ -36,18 +38,22 @@
       </dir-disqus>
       <div style="margin-top:50px;" ng-if='showMap'>
         <div style='padding-left:50px'>
-          <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p>
+          <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'></span> The gig location is {{gigInfo.address}}</p>
         </div>
         <div address-based-google-map address="Address" zoom="16"></div>
         <div area-based-google-map area="Area" zoom="8"></div>
       </div>
     </md-content>
-    <div style="margin-top:13em; color:white; font-size:20px">
+    <div style="margin-top:13em; color:white;font-size:20px">
       <form method='POST' action='https://voguepay.com/pay/'>
-       <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true">
-          <md-option ng-repeat="quantity in [1,2,3,4,5,6,7]" value="{{quantity}}">{{quantity}}</md-option>
-        </md-select>
-       <!-- <span> {{(quantity) ? (quantity*1000) : 1000}}</span> -->
+        <div>
+          <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true" style="margin-left:30px">
+            <md-option ng-repeat="quantity in [1,2,3,4,5,6,7]" value="{{quantity}}"><span>{{quantity}}</span></md-option>
+          </md-select>
+          <!-- <span> {{(quantity) ? (quantity*1000) : 1000}}</span> -->
+          <!-- <div style="color:black;">Total Price:</div> -->
+          <div style="color:black;text-align:center;padding-bottom:1.5em">Total Price: &#x20A6;{{(order.quantity) ? (order.quantity*1000) : 1000}}</div>
+        </div>
         <input type='hidden' name='v_merchant_id' value='1316-0029773' />
         <!-- 1316-0029773 -->
         <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{gigInfo.addedBy.email}}" />
@@ -60,9 +66,9 @@
         <!-- <input type='hidden' name='notify_url' value='https://tangong-api.herokuapp.com/api/payment/' /> -->
         <input type='hidden' name='success_url' value='https://tangong-api.herokuapp.com/api/payment/' />
         <input type='hidden' name='fail_url' value='http://andela-ssunday.github.io/tangong' />
-        <input type='image' ng-src='app/assets/img/order.png' alt='Submit' />
+        <input type='image' ng-src='app/assets/img/order2.png' style="width:200px" alt='Submit' />
       </form>
-   <!--    <a class="twitter-share-button" id="twitterLink" href="https://twitter.com/share" data-size="large" data-url="" data-count-url="" data-via="tangoNG" data-related="tangoNG" data-hashtags="Andela, TangoNG" data-text="">
+      <!--    <a class="twitter-share-button" id="twitterLink" href="https://twitter.com/share" data-size="large" data-url="" data-count-url="" data-via="tangoNG" data-related="tangoNG" data-hashtags="Andela, TangoNG" data-text="">
           Tweet
         </a> -->
     </div>
