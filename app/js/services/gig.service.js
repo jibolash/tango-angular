@@ -10,6 +10,10 @@ app.factory('gigService', ['$http','baseUrl', 'Upload', function($http, baseUrl,
     return $http.get(baseUrl + '/gigs');
   };
 
+  gigFactory.randomGigs = function(){
+    return $http.get(baseUrl + '/randomGigs');
+  };
+
   gigFactory.oneGig = function(gigid){
     return $http.get(baseUrl + '/gig/' + gigid);
   };

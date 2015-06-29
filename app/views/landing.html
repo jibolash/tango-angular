@@ -9,7 +9,7 @@
     <md-button flex='5' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
     <md-button flex='10' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
 
-    <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <md-button flex='10' ng-click="postGig($event)" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:39em; width:100%">
     <div flex>
@@ -46,4 +46,31 @@
       </div>
     </div>
   </div>
+
+  <div layout="row" style='padding-left: 1em'>
+    <div flex>
+
+      <div layout="row">
+        <h2 style='margin-left: 20px; color:black' flex='60'>FEATURED GIGS</h2>
+      </div>
+
+      <div ng-controller="gigsCtrl">
+        <div ng-repeat='randomGig in randomGigs | limitTo: 4' style="background:white; padding-left:2em">
+          <md-card style="margin-left: 10px; width: 310px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: randomGig._id})">
+            <img ng-src="{{randomGig.imageUrl}}" width="235.516" height="220" >
+            <md-card-content style="background:white">
+              <h2 class="md-title" >{{randomGig.title}}</h2>
+              <p>{{(randomGig.description).substring(0, 50) + '...'}}</p>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center" style="background:white">
+              <md-button >View Details</md-button>
+            </div>
+          </md-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
 </div>

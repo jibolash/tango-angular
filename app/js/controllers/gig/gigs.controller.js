@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Tango')
-  .controller('gigsCtrl', ['$scope', 'gigService', 'categoryService', '$window', 'Upload', '$location', '$mdDialog', '$mdToast', '$stateParams', '$animate', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $stateParams, $animate) {
+  .controller('gigsCtrl', ['$scope', 'gigService', 'categoryService', '$window', 'Upload', '$location', '$mdDialog', '$mdToast', '$stateParams', '$animate', 'Auth', function($scope, gigService, categoryService, $window, Upload, $location, $mdDialog, $mdToast, $stateParams, $animate, Auth) {
 
     if ($stateParams.hasOwnProperty("catid")) {
       categoryService.getOne($stateParams.catid).success(function(catData) {
@@ -10,21 +10,39 @@ angular.module('Tango')
           $scope.isempty = (data.length===0)? true:false;
           $scope.gigs = data;
         });
-      })
+      });
     } else {
 
       gigService.allGigs().success(function(data) {
         $scope.gigs = data;
       });
+
     }
+      gigService.randomGigs().success(function(data){
+        $scope.randomGigs = data;
+      });
 
 
     categoryService.getAll()
       .success(function(data) {
         $scope.categories = data;
       });
-    $scope.postGig = function() {
-      $location.path('/gigs/new');
+    $scope.postGig = function(ev) {
+      if(Auth.isLoggedIn()){
+        $location.path('/gigs/new');
+      }
+      else{
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.body))
+            .title('Please Login')
+            .content('We are glad you cannot wait to get started, but you have to login to post a gig, or create an account if you do not have one.')
+            .ariaLabel('Post gig alert')
+            .ok('Close')
+            .targetEvent(ev)
+          );
+      }
+
     };
     $scope.doAdd = function(gig) {
       var localhost = "http://localhost:8000/api/gigs";

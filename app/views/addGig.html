@@ -8,7 +8,6 @@
     <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
     <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
   </md-toolbar>
-
   <div layout="row" style='margin-left:150px'>
     <div flex>
       <div layout="row">
@@ -47,17 +46,17 @@
           </md-select>
           <label>Mind telling us where you intend to offer this service from? This is not compulsory, it's a free world...</label>
           <div layout='row'>
-          <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
-            <label>Address</label>
-            <div style='padding-top:1em'>
-              <textarea ng-model="gig.address" ng-required="false" style='width:40em'></textarea>
-            </div>
-          </md-input-container>
+            <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
+              <label>Address</label>
+              <div style='padding-top:1em'>
+                <textarea ng-model="gig.address" ng-required="false" style='width:40em'></textarea>
+              </div>
+            </md-input-container>
           </div>
           <md-button class="md-raised md-primary" ng-disabled="addGigForm.$invalid" ng-click="doAdd(gig)" style="background: green; border-radius:5px; color:white">Add</md-button>
         </form>
       </div>
     </div>
   </div>
-  <md-progress-linear md-mode="indeterminate" ng-if="loadingBar"></md-progress-linear>
+
 </div>
