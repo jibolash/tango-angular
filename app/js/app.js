@@ -5,9 +5,9 @@ angular.module("Tango", ['ngMaterial', 'ngRoute', 'ui.router', 'ngFileUpload', '
     $httpProvider.interceptors.push('AuthInterceptor');
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey')
+      .primaryPalette('green')
       .accentPalette('light-green')
-      .backgroundPalette('grey');
+      .backgroundPalette('grey')
   });
 
 angular.module("Tango").run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {

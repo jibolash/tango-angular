@@ -18,7 +18,7 @@ app.controller("categoryController", ['categoryService', '$scope', '$stateParams
   }
 
   if (!$rootScope.selectedCategory) {
-    $scope.loadDefault = function() {
+    $rootScope.loadDefault = function() {
       $location.path("/gigs/all");
     }
   }

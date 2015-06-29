@@ -3,25 +3,28 @@
     <div class="md-toolbar-tools" layout-align-gt-sm="left">
       <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
     </div>
-    <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+          <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
     <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
-    <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+      <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+      <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
   <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:89em">
   </div>
   <div layout="row">
     <div ng-controller="categoryController" ng-init="loadDefault()">
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" style="height:500px">
         <h1 class="md-toolbar-tools" layout='center center'>Categories</h1>
+        <md-divider></md-divider>
         <md-list ng-repeat="category in categories">
           <md-list-item>
             <p ui-sref="checkCategory({catid: category._id})">
-              <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>{{category.name}}
-              <md-switch class="md-secondary" ng-model="category._id===selectedCategory" aria-label="s1"></md-switch>
+              <md-icon md-svg-src="{{category.iconLink}}" style='color:#00f'></md-icon>
+              {{category.name}}
+              <md-switch style="display:inline" class="md-secondary" md-no-ink ng-model="category._id===selectedCategory" aria-label="s1"></md-switch>
             </p>
           </md-list-item>
+          <md-divider></md-divider>
         </md-list>
       </md-sidenav>
     </div>

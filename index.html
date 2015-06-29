@@ -3,7 +3,6 @@
 
 <head>
   <link rel="canonical" href="https://dev.twitter.com/web/tweet-button">
-
   <script>
   window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
@@ -26,15 +25,23 @@
   <link rel="stylesheet" type="text/css" href="app/assets/style.css">
   <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
   <style>
-    .btnlnk:hover{
-      background-color:white !important;
-    }
+  .btnlnk:hover {
+    background-color: white !important;
+  }
+
+  md-switch.md-default-theme.md-checked .md-thumb {
+    background-color: rgb(75, 174, 78);
+  }
+
+  md-switch.md-default-theme.md-checked .md-bar {
+    background-color: rgba(75, 174, 78, .5);
+  }
   </style>
 </head>
 
 <body>
   <div ui-view></div>
-<!--   <div class="footer">
+  <!--   <div class="footer">
     <center><span>Built by <a href="http://github.com/andela-asogbein">Jibola</a> and <a href="http://github.com/andela-ssunday">Stephen</a> at <a href="http://twitter.com/andela">Andela</a>
     </center>
   </div> -->

@@ -18,11 +18,6 @@ angular.module('Tango')
       });
     }
 
-
-    categoryService.getAll()
-      .success(function(data) {
-        $scope.categories = data;
-      });
     $scope.postGig = function() {
       $location.path('/gigs/new');
     };
