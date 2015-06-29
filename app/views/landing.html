@@ -28,12 +28,12 @@
       </md-input-container> -->
     </div>
   </div>
-  <div layout="row" style='padding-left: 1em'>
+  <div layout="row" style='padding-top: 3em'>
     <div flex>
       <div layout="row">
-        <h2 style='margin-left: 20px; color:black' flex='60'>RECENTLY ADDED GIGS</h2>
+        <h2 style='color:black;text-align:center;margin-left:20%' flex='60'>RECENTLY ADDED GIGS</h2>
       </div>
-      <div ng-controller="gigsCtrl">
+      <div ng-controller="gigsCtrl" layout layout-align="center center">
         <div ng-repeat='gig in gigs | limitTo: 4' style="background:white; padding-left:2em">
           <md-card style="margin-left: 10px; width: 310px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: gig._id})">
             <img ng-src="{{gig.imageUrl}}" width="235.516" height="220">
@@ -50,14 +50,14 @@
     </div>
   </div>
 
-  <div layout="row" style='padding-left: 1em'>
+  <div layout="row" style='padding-top: 3em'>
     <div flex>
 
       <div layout="row">
-        <h2 style='margin-left: 20px; color:black' flex='60'>FEATURED GIGS</h2>
+        <h2 style='color:black;text-align:center;margin-left:20%' flex='60'>FEATURED GIGS</h2>
       </div>
 
-      <div ng-controller="gigsCtrl">
+      <div ng-controller="gigsCtrl" layout layout-align="center center">
         <div ng-repeat='randomGig in randomGigs | limitTo: 4' style="background:white; padding-left:2em">
           <md-card style="margin-left: 10px; width: 310px; height: 400px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: randomGig._id})">
             <img ng-src="{{randomGig.imageUrl}}" width="235.516" height="220" >
