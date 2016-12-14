@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="Tango">
+
+<head>
+  <link rel="canonical" href="https://dev.twitter.com/web/tweet-button">
+  <script>
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
+  </script>
+  <title>Tango</title>
+  <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-loading-bar/src/loading-bar.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/style.css">
+  <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+  <style>
+  .btnlnk:hover {
+    background-color: white !important;
+  }
+
+  md-switch.md-default-theme.md-checked .md-thumb {
+    background-color: rgb(75, 174, 78);
+  }
+
+  md-switch.md-default-theme.md-checked .md-bar {
+    background-color: rgba(75, 174, 78, .5);
+  }
+  </style>
+</head>
+
+<body>
+  <div ui-view></div>
+
+  <script src="app/assets/bower_components/angular/angular.min.js"></script>
+  <script src="app/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="app/assets/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="app/assets/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="app/assets/bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="app/assets/bower_components/angular-material/angular-material.js"></script>
+  <script src="app/assets/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+  <script src="app/assets/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
+  <script src="app/assets/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="app/js/app.js"></script>
+  <!-- controllers -->
+  <script src="app/js/directives/googleMap.js"></script>
+  <script src="app/js/services/baseUrl.service.js"></script>
+  <script src="app/js/services/auth.service.js"></script>
+  <script src="app/js/services/user.service.js"></script>
+  <script src="app/js/services/gig.service.js"></script>
+  <script src="app/js/services/category.service.js"></script>
+  <script src="app/js/services/connection.service.js"></script>
+  <script src="app/js/controllers/login.controller.js"></script>
+  <script src="app/js/controllers/gig/gigs.controller.js"></script>
+  <script src="app/js/controllers/category/category.controller.js"></script>
+  <script src="app/js/controllers/search.controller.js"></script>
+  <script src="app/js/controllers/gig/gig.detail.js"></script>
+  <script src="app/js/controllers/help.js"></script>
+  <script src="app/js/controllers/gig/edit.gig.js"></script>
+  <script src="app/js/controllers/user/user.profile.js"></script>
+  <script src="app/js/controllers/user/edit.user.js"></script>
+  <script src="app/js/controllers/connection/connection.controller.js"></script>
+  <script src="app/js/controllers/messages/messages.controller.js"></script>
+  <script src="app/js/controllers/user/reset.password.js"></script>
+  <script src="app/assets/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+  <script src="app/assets/bower_components/angular-utils-disqus/dirDisqus.js"></script>
+  <script src="app/js/controllers/user/new.password.js"></script>
+</body>
+
+</html>

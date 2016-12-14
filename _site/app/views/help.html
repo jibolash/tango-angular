@@ -1,0 +1,24 @@
+<div>
+  <md-toolbar layout="row" style="background:white; position:fixed; top:0px; width: 100%">
+    <div class="md-toolbar-tools" layout-align-gt-sm="left">
+      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+    </div>
+    <!-- <div layout="row" layout-align="right" style="width:70%"> -->
+      <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
+      <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+      <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+      <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+      <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+    <!-- </div> -->
+  </md-toolbar>
+  <div style='margin-left: 20em; width: 50em'>
+    <h3>Do stuff you love</h3>
+    <p>YOU are good at something, and believe it or not, somebody, somewhere is ready to pay you for that skill/ability.</p>
+    <h3>Boost Your Resume/Street Cred</h3>
+    <p>Tango is an easy way to gain relevant work experience doing stuff you love while mastering it at the same time. You have nothing to lose!.</p>
+    <h3>Will I get Quality for My Money?</h3>
+    <p>There is only one way to find out...Try! Don't worry, you get your money back if you are not satisfied with services offered. Guaranteed.</p>
+    <h3>What Can I offer?</h3>
+    <p>Can you design an eye catching logo for someone? Can you mix and master a song? Can you read people's destiny? There is a place for everyone on Tango!</p>
+  </div>
+</div>

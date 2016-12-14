@@ -1,0 +1,34 @@
+<div>
+  <md-toolbar layout="row" style="background:white">
+    <div class="md-toolbar-tools" layout-align-gt-sm="left">
+      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+    </div>
+    <md-button flex='5' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+  </md-toolbar>
+  <div style='margin-left: 20em; width: 50em' ng-controller='connectionCtrl'>
+    <h3>Username</h3>
+    <p>{{userData.username}}</p>
+    <h3>Email</h3>
+    <p>{{userData.email}}</p>
+    <md-button style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
+    <!--   ui-sref="editProfile({userid: userData._id})" -->
+    <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
+    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/user/profile/{{user.username}}">VIEW GIGS</md-button>
+    <h3>{{connections.length>0 ? (userData.username + "'s" +" "+ "Connections") : 'No connections available'}}</h3>
+    <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
+    <md-content>
+      <md-list>
+        <md-list-item ng-repeat="conn in connections" ng-click="messaging(conn._id)" style="background:gainsboro;">
+          <p><span class="md-title">{{(conn.provider.username===user.username) ? conn.requester.username : conn.provider.username }}</span> &nbsp;&nbsp;({{conn.gig.title}})</p>
+          <md-icon md-svg-src="/app/assets/img/chat2.svg" ng-click="messaging(conn._id)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class=""></md-icon>
+          <!-- ng-class="{'md-primary': person.newMessage}" -->
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+  <!-- </div> -->
+</div>

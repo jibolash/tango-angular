@@ -1,0 +1,18 @@
+{
+  "name": "Tango",
+  "version": "1.0.0",
+  "description": "Tango App",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js",
+    "start": "http-server -a localhost -p 3000 -c-1",
+    "postinstall": "bower install",
+    "pretest": "npm install"
+  },
+  "author": "Jibolash & stivenchy",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "http-server": "^0.8.0"
+  }
+}

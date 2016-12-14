@@ -1,0 +1,29 @@
+{
+  "name": "Tango",
+  "version": "0.0.0",
+  "authors": [
+    "Stephen <stephen.sunday@andela.co>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.0",
+    "angular-material": "~0.9.0",
+    "angular-ui-router": "~0.2.15",
+    "ng-file-upload": "~5.0.4",
+    "angular-loading-bar": "~0.8.0",
+    "angular-ui-map": "~0.5.0",
+    "angular-ui-utils": "event-0.2.3",
+    "ngmap": "~1.7.11",
+    "firebase": "~2.2.7"
+  },
+  "resolutions": {
+    "angular-ui-utils": "0.x"
+  }
+}

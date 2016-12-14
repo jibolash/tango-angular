@@ -1,0 +1,20 @@
+<md-dialog aria-label='LOGIN' ng-controller="loginCtrl">
+  <md-toolbar layout layout-align="center center">Log In</md-toolbar>
+  <form name='loginForm' layout-margin>
+    <h3 ng-if='loginError'>Wrong Username or Password</h3>
+    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+      <label>Username</label>
+      <input ng-model="loginData.username" type="text" ng-required="true">
+    </md-input-container>
+
+    <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
+      <label>Password</label>
+      <input ng-model="loginData.password" type="password" ng-required="true">
+    </md-input-container>
+
+    <md-button  flex ng-disabled="loginForm.$invalid" ng-click="doLogin()" class="md-raised md-primary md-hue-2">
+      Login
+    </md-button>
+    <md-button ui-sref="newPassword">Forgot your password? Click here</md-button>
+  </form>
+</md-dialog>

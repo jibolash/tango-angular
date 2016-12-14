@@ -1,0 +1,23 @@
+<md-dialog aria-label='JOIN' ng-controller="loginCtrl">
+    <md-toolbar layout layout-align="center center">JOIN</md-toolbar>
+    <form name='loginForm' layout-margin>
+        <h3 ng-if='signupError'>Email or username already Taken</h3>
+        <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
+            <label>Email</label>
+            <input ng-model="userData.email" type="text" ng-required="true">
+        </md-input-container>
+        <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
+            <label>Username</label>
+            <input ng-model="userData.username" type="text" ng-required="true">
+        </md-input-container>
+        <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
+            <label>Password</label>
+            <input ng-model="userData.password" type="password" ng-required="true">
+        </md-input-container>
+        <!--     <md-progress-linear md-mode="indeterminate" ng-hide="hideProg" class="md-primary"></md-progress-linear>
+ -->
+        <md-button flex ng-disabled="loginForm.$invalid" ng-click="doSignup(userData, $event)" class="md-raised md-primary md-hue-2">
+            Join
+        </md-button>
+    </form>
+</md-dialog>

@@ -1,0 +1,67 @@
+<div>
+  <md-toolbar layout="row" style="background:white; position:fixed; top:0px">
+    <div class="md-toolbar-tools" layout-align-gt-sm="left">
+      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+    </div>
+    <md-button flex='15' ng-click="showRecentGigs()" style='color:black' ng-controller="gigsCtrl">BROWSE</md-button>
+    <md-button flex='15' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+    <md-button flex='15' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+    <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+    <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+    <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+  </md-toolbar>
+  <div ng-controller="gigDetailCtrl" style='width:800px; margin-top:50px; margin-left:25%' layout='row'>
+    <md-content class="md-padding" flex='150' style="background:white">
+      <h3 style='text-align:center'>{{gigInfo.title}}</h3>
+      <span ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'>By: <span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> in {{gigInfo.category.name}}</span>
+      <span style='text-align:right; margin-left:30%'>Duration: {{gigInfo.duration}} Days</span>
+      <md-tabs md-dynamic-height md-border-bottom style="background:white">
+        <md-tab label="gist" style="background:white">
+          <md-content class="md-padding" style="background:white">
+            <img ng-src={{gigInfo.imageUrl}} width="470" height="440">
+          </md-content>
+        </md-tab>
+        <md-tab label="description">
+          <md-content class="md-padding" style="background:white">
+            <h1 class="md-display-2">Gig Description</h1>
+            <div>{{gigInfo.description}}</div>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+      <md-button ui-sref="editGig({gigid: gigInfo._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-controller="editGigCtrl" ng-show="user.username === gigInfo.addedBy.username">EDIT GIG</md-button>
+      <md-button ng-click="showConfirm($ev, gigInfo._id)" style="background: red; border-radius:5px;" ng-controller="gigsCtrl" ng-show="user.username === gigInfo.addedBy.username">DELETE GIG {{user.email}}</md-button>
+      <dir-disqus disqus-shortname="tangong" disqus-identifier="{{ gigid }}" disqus-url="{{ url }}">
+      </dir-disqus>
+      <div style="margin-top:50px;" ng-if='showMap'>
+        <div style='padding-left:50px'>
+          <p ui-sref="profile({username: gigInfo.addedBy.username})" style='cursor:pointer;'><span style='color: #4bae4e'>{{gigInfo.addedBy.username}}</span> is based in {{gigInfo.address}}</p>
+        </div>
+        <div address-based-google-map address="Address" zoom="16"></div>
+        <div area-based-google-map area="Area" zoom="8"></div>
+      </div>
+    </md-content>
+    <div style="margin-top:13em; color:white; font-size:20px">
+      <form method='POST' action='https://voguepay.com/pay/'>
+       <md-select placeholder="Quantity" ng-model="order.quantity" ng-required="true">
+          <md-option ng-repeat="quantity in [1,2,3,4,5,6,7]" value="{{quantity}}">{{quantity}}</md-option>
+        </md-select>
+        <input type='hidden' name='v_merchant_id' value='1316-0029773' />
+        <!-- 1316-0029773 -->
+        <input type='hidden' name='merchant_ref' value="{{gigInfo.addedBy._id}}-{{gigInfo._id}}-{{user.id}}-{{user.username}}-{{gigInfo.title}}-{{gigInfo.addedBy.username}}-{{gigInfo.addedBy.email}}" />
+        <input type='hidden' name='memo' value='Order from Tango' />
+        <input type='hidden' name='item_1' value='{{gigInfo.title}}' />
+        <input type='hidden' name='description_1' value='{{gigInfo.description}}' />
+        <input type='hidden' name='price_1' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
+        <input type='hidden' name='store_id' value='25' />
+        <input type='hidden' name='total' value='{{(order.quantity) ? order.quantity*1000 : 1}}' />
+        <!-- <input type='hidden' name='notify_url' value='https://tangong-api.herokuapp.com/api/payment/' /> -->
+        <input type='hidden' name='success_url' value='https://tangong-api.herokuapp.com/api/payment/' />
+        <input type='hidden' name='fail_url' value='http://andela-ssunday.github.io/tangong' />
+        <input type='image' ng-src='app/assets/img/order.png' alt='Submit' />
+      </form>
+   <!--    <a class="twitter-share-button" id="twitterLink" href="https://twitter.com/share" data-size="large" data-url="" data-count-url="" data-via="tangoNG" data-related="tangoNG" data-hashtags="Andela, TangoNG" data-text="">
+          Tweet
+        </a> -->
+    </div>
+  </div>
+</div>
