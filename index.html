@@ -40,7 +40,14 @@
 </head>
 
 <body>
-  <div ui-view></div>
+  <div id="body-div">
+    <div ui-view class="view-div"></div>
+    <div class="footer">
+      <p>A <a href="https://www.wikiwand.com/en/MEAN_(software_bundle)">MEAN</a> stack app, inspired by <a href="https://www.fiverr.com/">Fiverr</a></p>
+      <p>Crafted with love by <a href="https://github.com/jibolash">Jibolash</a> &#38; <a href="https://github.com/neddinn/">Neddinn</a></p>
+      <p>Powered by <a href="https://www.heroku.com/">Heroku</a>, <a href="https://pages.github.com/">Github Pages</a> &#38; <a href="https://firebase.google.com/">Firebase</a></p>
+    </div>
+  </div>
 
   <script src="app/assets/bower_components/angular/angular.min.js"></script>
   <script src="app/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -76,6 +83,8 @@
   <script src="app/assets/bower_components/angular-loading-bar/src/loading-bar.js"></script>
   <script src="app/assets/bower_components/angular-utils-disqus/dirDisqus.js"></script>
   <script src="app/js/controllers/user/new.password.js"></script>
+  
 </body>
+
 
 </html>

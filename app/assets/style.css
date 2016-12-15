@@ -34,17 +34,32 @@ a.twitter-hashtag-button:focus {
     padding: 10px;
   }
 
+body {
+  font-family: "Open Sans";
+  position: relative;
+}
+
+#body-div {
+  min-height:100%;
+  position: relative;
+}
+
 .footer {
-  position: fixed;
-  background-color:  #4bae4e;
-  height: 2em;
-  bottom: 0;
-  width: 100%;
+  text-align: center;
+  background:black;
   color: white;
-  line-height: 2em;
+  width:100%;
+  height:120px;
+  padding-top: 10px;
+  position:absolute;
+  bottom:0;
+}
+
+.view-div {
+  padding-bottom:200px
 }
 
 .footer a {
-  color: black;
+  color: #4BAE4E;
   text-decoration: none;
 }
