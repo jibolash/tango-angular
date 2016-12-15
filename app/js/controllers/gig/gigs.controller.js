@@ -67,7 +67,7 @@ angular.module('Tango')
       gigService.deleteGig(gigid).success(function(data) {
         $location.path('/gigs');
         $mdToast.show({
-          templateUrl: 'app/views/deleteToast.html',
+          templateUrl: 'app/views/toasts/deleteToast.html',
           hideDelay: 6000,
           position: $scope.getToastPosition()
         });

@@ -39,7 +39,7 @@ angular.module('Tango')
         .success(function(data) {
           $location.path("/gig/" + gigid);
           $mdToast.show({
-            templateUrl: 'app/views/editToast.html',
+            templateUrl: 'app/views/toasts/editToast.html',
             hideDelay: 6000,
             position: $scope.getToastPosition()
           });

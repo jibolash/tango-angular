@@ -29,87 +29,87 @@ angular.module("Tango")
     $stateProvider
       .state('home', {
         url: "/",
-        templateUrl: "app/views/landing.html",
+        templateUrl: "app/views/home.html",
         controller: "searchCtrl"
       })
       .state('add', {
         url: "/gigs/new",
-        templateUrl: "app/views/addGig.html"
+        templateUrl: "app/views/gigs/addGig.html"
       })
       .state('gigDetail', {
         url: "/gig/:gigid",
-        templateUrl: "app/views/gig.detail.html"
+        templateUrl: "app/views/gigs/gig.detail.html"
       })
       .state('help', {
         url: "/help",
-        templateUrl: "app/views/help.html",
+        templateUrl: "app/views/pages/help.html",
         controller: "helpCtlr"
       })
       .state('gigs', {
         url: "/gigs",
         views: {
           '': {
-            templateUrl: "app/views/gigs.view.html",
+            templateUrl: "app/views/gigs/gigs.view.html",
           },
           'views@gigs': {
-            templateUrl: "app/views/allGigs.html"
+            templateUrl: "app/views/gigs/allGigs.html"
           }
         }
       })
       .state('editGig', {
         url: '/gig/edit/:gigid',
-        templateUrl: 'app/views/edit.gig.html',
+        templateUrl: 'app/views/gigs/edit.gig.html',
         controller: "editGigCtrl"
       })
       .state('profile', {
         url: '/user/profile/:username',
-        templateUrl: 'app/views/user.profile.html',
+        templateUrl: 'app/views/user/user.profile.html',
         controller: "userProfileCtrl"
       })
       .state('pay', {
         url: '/gig/pay/:gigid',
-        templateUrl: 'app/views/payment.html',
+        templateUrl: 'app/views/payment/payment.html',
         controller: "editGigCtrl"
       })
       .state('checkCategory', {
         parent: 'gigs',
         url: '/gigs/category/:catid',
-        templateUrl: 'app/views/categoryView.html',
+        templateUrl: 'app/views/category/categoryView.html',
         controller: "categoryController"
       })
       .state('gigs.default', {
         url: '/all',
-        templateUrl: 'app/views/allGigs.html',
+        templateUrl: 'app/views/gigs/allGigs.html',
         // controller: "gigsCtrl"
       })
       .state('search', {
         url: '/search/:gigName',
-        templateUrl: 'app/views/search.html',
+        templateUrl: 'app/views/gigs/search.html',
         // controller: "gigsCtrl"
       })
       .state('connections', {
         url: '/connections',
-        templateUrl: 'app/views/connection.view.html',
+        templateUrl: 'app/views/chat/connection.view.html',
         controller: "connectionCtrl"
       })
       .state('messaging', {
         url: '/messages/:message_id',
-        templateUrl: 'app/views/messages.view.html',
+        templateUrl: 'app/views/chat/messages.view.html',
         controller: "messageCtrl"
       })
       .state('editProfile', {
         url: "/user/edit/:userid",
-        templateUrl: "app/views/edit.user.html",
+        templateUrl: "app/views/user/edit.user.html",
         controller: "editUserCtrl"
       })
       .state('newPassword', {
         url: "/new/password",
-        templateUrl: "app/views/new.password.html",
+        templateUrl: "app/views/auth/new.password.html",
         controller: "newPasswordCtrl"
       })
       .state('resetPassword', {
         url: "/reset/password/:randomToken",
-        templateUrl: "app/views/reset.password.html",
+        templateUrl: "app/views/auth/reset.password.html",
         controller: "resetPasswordCtrl"
       });
   });
