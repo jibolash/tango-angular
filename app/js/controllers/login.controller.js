@@ -5,7 +5,7 @@ angular.module("Tango")
 
     $scope.login = function(ev) {
       $mdDialog.show({
-          templateUrl: 'app/views/login.html',
+          templateUrl: 'app/views/auth/login.html',
           targetEvent: ev,
           clickOutsideToClose: true,
           escapeToClose: true
@@ -15,7 +15,7 @@ angular.module("Tango")
 
     $scope.signup = function(ev) {
       $mdDialog.show({
-          templateUrl: 'app/views/signup.html',
+          templateUrl: 'app/views/auth/signup.html',
           targetEvent: ev,
           clickOutsideToClose: true,
           escapeToClose: true
@@ -73,7 +73,7 @@ angular.module("Tango")
           } else {
             $mdDialog.hide();
             $mdToast.show({
-              templateUrl: 'app/views/proceed.html',
+              templateUrl: 'app/views/toasts/proceed.html',
               hideDelay: 6000,
               position: $scope.getToastPosition()
             });
@@ -85,7 +85,7 @@ angular.module("Tango")
     $scope.showGridBottomSheet = function($event) {
       $scope.alert = '';
       $mdBottomSheet.show({
-        templateUrl: "app/views/bottomsheet.html",
+        templateUrl: "app/views/common/bottomsheet.html",
         targetEvent: $event
       }).then(function(clickedItem) {
         $scope.alert = clickedItem.name + ' clicked!';
