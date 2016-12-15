@@ -9,15 +9,16 @@
     <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
     <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
+          <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:100%">
+  </div>
   <div style='margin-left: 20em; width: 50em' ng-controller='connectionCtrl'>
-    <h3>Username</h3>
-    <p>{{userData.username}}</p>
-    <h3>Email</h3>
-    <p>{{userData.email}}</p>
-    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/user/profile/{{user.username}}">VIEW GIGS</md-button>
-    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
-    <h3>Messages with {{connection.provider.username}}</h3>
-    <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
+
+    
+    <h3>Messages with {{connection.requester.username}}</h3>
+    <md-input-container>
+      <input type="text" ng-model="message" ng-keydown="($event.keyCode===13) ? (message = add(message) ? '' : '') : false"/>
+    </md-input-container>
+    <md-button style="background: green; border-radius:5px;" ng-click="add(message); message=''">SEND</md-button>
     <md-content>
       <md-list>
         <md-list-item class="md-3-line" ng-repeat="msg in messages" style="background:gainsboro">
@@ -25,10 +26,7 @@
         </md-list-item>
       </md-list>
     </md-content>
-    <md-input-container>
-      <input type="text" ng-model="message" ng-keydown="($event.keyCode===13) ? (message = add(message) ? '' : '') : false"/>
-    </md-input-container>
-    <md-button style="background: green; border-radius:5px;" ng-click="add(message); message=''">SEND</md-button>
+    
   </div>
   <!-- </div> -->
 
