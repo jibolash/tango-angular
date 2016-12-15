@@ -5,7 +5,8 @@
       <md-button flex='15' ng-click="login($event)" ng-controller="loginCtrl"  ng-if="!loggedIn" style='color:black'>Login</md-button>
       <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
     </md-toolbar>
-
+      <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:100%">
+      </div>
     <div layout="row" style='margin-left:150px'>
     <div flex>
       <div layout="row">
@@ -15,7 +16,7 @@
       </div>
       <div>
         <form name='addGigForm' enctype="multipart/form-data" layout-margin>
-          <label>What do you want to do?</label>
+          <label>What do yffou want to do?</label>
           <md-input-container  class="md-icon-float" style="margin-top: 0.03em;">
             <label>Gig Title</label>
             <input ng-model="gig.title" type="text" ng-required="true" style='width:40em'>
