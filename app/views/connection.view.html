@@ -8,15 +8,15 @@
     <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
     <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
+      <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:100%">
+  </div>
   <div style='margin-left: 20em; width: 50em' ng-controller='connectionCtrl'>
-    <h3>Username</h3>
-    <p>{{userData.username}}</p>
-    <h3>Email</h3>
-    <p>{{userData.email}}</p>
-    <md-button style="background: green; border-radius:5px; display: inline; padding: 1px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
-    <!--   ui-sref="editProfile({userid: userData._id})" -->
-    <md-button style="background: red; border-radius:5px;" ng-show='user.username === userData.username'>DELETE PROFILE</md-button>
-    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/user/profile/{{user.username}}">VIEW GIGS</md-button>
+    <div style="text-align: center;">
+      <h3>Username</h3>
+      <p>{{userData.username}}</p>
+      <h3>Email</h3>
+      <p>{{userData.email}}</p>
+    
     <h3>{{connections.length>0 ? (userData.username + "'s" +" "+ "Connections") : 'No connections available'}}</h3>
     <!-- <div  ng-repeat='userGig in userGigs' style="background:white;"> -->
     <md-content>
@@ -29,6 +29,7 @@
         </md-list-item>
       </md-list>
     </md-content>
+    </div>
   </div>
   <!-- </div> -->
 </div>

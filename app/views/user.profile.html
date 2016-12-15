@@ -8,27 +8,29 @@
     <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
     <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
   </md-toolbar>
-  <div style='margin-left: 20em; width: 50em' ng-controller='userProfileCtrl'>
-    <h3>Username</h3>
-    <p>{{userData.username}}</p>
-    <h3>Email</h3>
-    <p>{{userData.email}}</p>
-    <md-button ui-sref="editProfile({userid: userData._id})" style="background: green; border-radius:5px; display: inline; padding: 9px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
-    <!--   ui-sref="editProfile({userid: userData._id})" -->
-    <md-button ng-click="showConfirmDelete($ev, userData._id)" style="background: red; border-radius:5px;" ng-controller="userProfileCtrl" ng-show="user.username === userData.username">DELETE MY ACCOUNT</md-button>
-    <md-button style="background: green; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
-    <h3>{{userGigs.length>0 ? (userData.username + "'s" +" "+ "Gigs") : "No gigs created yet."}}</h3>
-    <div ng-repeat='userGig in userGigs' style="background:white;">
-      <md-card style="margin-left: 10px; width: 330px; float: left; cursor:pointer" ui-sref="gigDetail({gigid: userGig._id})">
-        <img ng-src="{{userGig.imageUrl}}" width="235.516" height="220">
-        <md-card-content style="background:white">
-          <h2 class="md-title">{{userGig.title}}</h2>
-          <p>{{(userGig.description).substring(0, 50) + '...'}}</p>
-        </md-card-content>
-        <div class="md-actions" layout="row" layout-align="end center" style="background:white">
-          <md-button>View Details</md-button>
-        </div>
-      </md-card>
+    <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:100%">
+  </div>
+  <div style='padding-bottom: 500px' ng-controller='userProfileCtrl'>
+    <div style="text-align: center;">
+      <h3>Username</h3>
+      <p>{{userData.username}}</p>
+      <h3>Email</h3>
+      <p>{{userData.email}}</p>
+      <md-button ui-sref="editProfile({userid: userData._id})" style="background: #e6e6e6; border-radius:5px; display: inline; padding: 9px;" ng-show='user.username === userData.username'>EDIT PROFILE</md-button>
+      <!--   ui-sref="editProfile({userid: userData._id})" -->
+      <md-button style="background: #e6e6e6; border-radius:5px;margin-bottom:-13px" ng-show='user.username === userData.username' ng-href="#!/connections">VIEW CONNECTIONS</md-button>
+      <md-button ng-click="showConfirmDelete($ev, userData._id)" style="background: #e6e6e6; border-radius:5px;" ng-controller="userProfileCtrl" ng-show="user.username === userData.username">DELETE MY ACCOUNT</md-button>
+    </div>
+    <div style="margin-left: 5em">
+      <h3>{{userGigs.length>0 ? (userData.username + "'s" +" "+ "Gigs") : "No gigs created yet."}}</h3>
+      <div ng-repeat='userGig in userGigs' style="background:white;">
+        <md-card style="margin-left: 10px; width: 330px; float: left;" ui-sref="gigDetail({gigid: userGig._id})">
+          <img ng-src="{{userGig.imageUrl}}" width="235.516" height="220" style="cursor:pointer" ui-sref="gigDetail({gigid: userGig._id})">
+          <md-card-content style="background:white">
+            <h3 style="font-weight: 400; font-size: 16px">{{userGig.title}}</h3>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
   </div>
 </div>

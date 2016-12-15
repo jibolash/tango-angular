@@ -31,7 +31,7 @@
       <div>
         <h2 style='color:black; text-align:center;'>RECENTLY ADDED GIGS</h2>
       </div>
-      <div ng-controller="gigsCtrl" layout="row" layout-sm="column" style="margin: 10px">
+      <div ng-controller="gigsCtrl" layout="row" layout-sm="column" layout-md="column" style="margin: 10px">
         <div ng-repeat='gig in gigs | limitTo: 5' style="background:white;" flex="20" flex-sm="100" flex-md="50" flex-lg="33">
           <md-card style="margin-left: 10px; height: 350px; position: relative;">
             <img width="235.516" height="220" ui-sref="gigDetail({gigid: gig._id})" style="cursor:pointer" ng-src="{{gig.imageUrl}}" >
