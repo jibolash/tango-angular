@@ -10,19 +10,21 @@
       <md-button flex='15' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
       <md-button flex='15' ng-click="postGig()" style="background: green; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
     </md-toolbar>
+          <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff; background-repeat: repeat-x; height:15em; width:100%">
+      </div>
   </div>
-  <form name='editUserForm' style=margin-top:80px>
+  <form name='editUserForm' style="margin: 0 auto; width: 30%; text-align: center;">
     <h3 ng-if='signupError'>Email or username already Taken</h3>
+    <label>Email</label>
     <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
-      <label>Email</label>
-      <input ng-model="userData.email" type="text" ng-required="true">
+      <input ng-model="userData.email" type="text" ng-required="true" >
     </md-input-container>
-    <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
       <label>Username</label>
+    <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
       <input ng-model="userData.username" type="text" ng-required="true">
     </md-input-container>
-    <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
       <label>Password</label>
+    <md-input-container class="md-icon-float" style="margin-top: 0.03em;">
       <input ng-model="userData.password" type="password" ng-required="true">
     </md-input-container>
     <!--     <md-progress-linear md-mode="indeterminate" ng-hide="hideProg" class="md-primary"></md-progress-linear>

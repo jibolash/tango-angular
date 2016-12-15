@@ -1,67 +1,62 @@
 <div>
-  <md-toolbar layout="row" style="background:white; position:fixed; top:0px; width: 100%">
-    <div class="md-toolbar-tools" layout-align-gt-sm="left">
-      <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
-    </div>
-
-    <!-- <div layout="row" layout-align="right" style="width:70%"> -->
-    <md-button flex='10' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE GIGS</md-button>
-    <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
-    <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
-    <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
-    <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
-    <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
-    <!-- </div> -->
-  </md-toolbar>
-
-  <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff;  height:39em; width:100%" ng-controller="searchCtrl">
-    <div flex style="background-color:rgba(0,0,0,0.5)">
-      <h1 class='md-display-3' layout-align="center center">
+    <md-toolbar layout="row" style="background:white; position:fixed; top:0px; width: 100%">
+        <div class="md-toolbar-tools" layout-align-gt-sm="left">
+            <a ui-sref='home'><img src="app/assets/img/tango_logo.svg"></a>
+        </div>
+        <!-- <div layout="row" layout-align="right" style="width:70%"> -->
+        <md-button flex='10' class='btnlnk' ng-click="showRecentGigs()" style='color:black;hover:none' ng-controller="gigsCtrl">BROWSE GIGS</md-button>
+        <md-button flex='10' class='btnlnk' ng-click="showHelp()" style='color:black' ng-controller='helpCtlr'>How IT WORKS</md-button>
+        <md-button flex='5' class='btnlnk' ng-click="signup($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Signup</md-button>
+        <md-button flex='5' class='btnlnk' ng-click="login($event)" ng-controller="loginCtrl" ng-if="!loggedIn" style='color:black'>Login</md-button>
+        <md-button flex='10' class='btnlnk' ng-click="showGridBottomSheet($event)" ng-controller="loginCtrl" ng-if="loggedIn" style='color:black'>My Profile</md-button>
+        <md-button flex='10' ng-click="postGig()" style="background: #4bae4e; border-radius:5px" ng-controller="gigsCtrl">POST A GIG</md-button>
+        <!-- </div> -->
+    </md-toolbar>
+    <div layout="row" style="background: url('app/assets/img/header.jpg'); background-size: cover; color: #fff;  height:39em; width:100%" ng-controller="searchCtrl">
+        <div flex style="background-color:rgba(0,0,0,0.5)">
+            <h1 class='md-display-3' layout-align="center center">
       <center style='color:white; margin-top:15%; text-align:center'><b>Do the things you love<br>and make money while at it.<br></b></center>
     </h1>
-      <h3 class="md-subhead" hide-sm>
+            <h3 class="md-subhead" hide-sm>
       <center style='font-size:26px; text-align:center; color:white'> Someone is ready to pay you <b style='color:white'>&#8358;1000</b> for that unique skill of yours, whatever it is</center>
     </h3>
-      <hr style='width: 50em'>
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <div>
-        <h2 style='color:black; text-align:center;'>RECENTLY ADDED GIGS</h2>
-      </div>
-      <div ng-controller="gigsCtrl" layout="row" layout-sm="column" layout-md="column" style="margin: 10px">
-        <div ng-repeat='gig in gigs | limitTo: 5' style="background:white;" flex="20" flex-sm="100" flex-md="50" flex-lg="33">
-          <md-card style="margin-left: 10px; height: 350px; position: relative;">
-            <img width="235.516" height="220" ui-sref="gigDetail({gigid: gig._id})" style="cursor:pointer" ng-src="{{gig.imageUrl}}" >
-            <md-card-content style="background:white;">
-              <h3 style="font-weight: 400; font-size: 16px">{{gig.title}}</h3>
-            </md-card-content>
-              <i style="position: absolute;bottom: 10px; right: 10px">By {{gig.addedBy.username}}</i>
-          </md-card>
+            <hr style='width: 50em'>
         </div>
-      </div>
     </div>
-  </div>
-
-  <div>
     <div>
-      <div>
-        <h2 style='color:black;text-align:center';>FEATURED GIGS</h2>
-      </div>
-      <div ng-controller="gigsCtrl" layout="row" layout-sm="column" style="margin: 10px">
-        <div ng-repeat='randomGig in randomGigs | limitTo: 5' style="background:white" flex="20" flex-sm="100" flex-md="50" flex-lg="33">
-          <md-card style="margin-left: 10px; height: 350px; position: relative;">
-            <img width="235.516" height="220" ng-src="{{randomGig.imageUrl}}" style="cursor:pointer" ui-sref="gigDetail({gigid: randomGig._id})">
-            <md-card-content style="background:white">
-              <h3 style="font-weight: 400; font-size: 16px">{{randomGig.title}}</h3>
-            </md-card-content>
-            <i style="position: absolute;bottom: 10px; right: 10px">By {{randomGig.addedBy.username}}</i>
-          </md-card>
+        <div>
+            <div>
+                <h2 style='color:black; text-align:center;'>RECENTLY ADDED GIGS</h2>
+            </div>
+            <div ng-controller="gigsCtrl" layout="row" layout-sm="column" layout-md="column" style="margin: 10px">
+                <div ng-repeat='gig in gigs | limitTo: 5' style="background:white;" flex="20" flex-sm="100" flex-md="50" flex-lg="33">
+                    <md-card style="margin-left: 10px; height: 350px; position: relative;">
+                        <img width="235.516" height="220" ui-sref="gigDetail({gigid: gig._id})" style="cursor:pointer" ng-src="{{gig.imageUrl}}">
+                        <md-card-content style="background:white;">
+                            <h3 style="font-weight: 400; font-size: 16px">{{gig.title}}</h3>
+                        </md-card-content>
+                        <i style="position: absolute;bottom: 10px; right: 10px">By {{gig.addedBy.username}}</i>
+                    </md-card>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
+    <div>
+        <div>
+            <div>
+                <h2 style='color:black;text-align:center' ;>FEATURED GIGS</h2>
+            </div>
+            <div ng-controller="gigsCtrl" layout="row" layout-sm="column" style="margin: 10px">
+                <div ng-repeat='randomGig in randomGigs | limitTo: 5' style="background:white" flex="20" flex-sm="100" flex-md="50" flex-lg="33">
+                    <md-card style="margin-left: 10px; height: 350px; position: relative;">
+                        <img width="235.516" height="220" ng-src="{{randomGig.imageUrl}}" style="cursor:pointer" ui-sref="gigDetail({gigid: randomGig._id})">
+                        <md-card-content style="background:white">
+                            <h3 style="font-weight: 400; font-size: 16px">{{randomGig.title}}</h3>
+                        </md-card-content>
+                        <i style="position: absolute;bottom: 10px; right: 10px">By {{randomGig.addedBy.username}}</i>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
